@@ -489,6 +489,7 @@ const icons: Icon = {
   ...icon("husky"),
   ...icon("hygen"),
   ...icon("i18n"),
+  ...icon("raycast"),
   ...icon("idris"),
   ...icon("imba"),
   ...icon("ionic"),
