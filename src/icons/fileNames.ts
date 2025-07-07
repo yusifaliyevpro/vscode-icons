@@ -477,6 +477,7 @@ export default {
   "pnpm-lock.yaml": "_f_pnpm",
   "pnpm-workspace.yaml": "_f_pnpm",
   "postcss.config.js": "_f_postcssconfig",
+  "postcss.config.mjs": "_f_postcssconfig",
   "postcss.config.cjs": "_f_postcssconfig",
   ".postcssrc.js": "_f_postcssconfig",
   ".postcssrc": "_f_postcssconfig",
