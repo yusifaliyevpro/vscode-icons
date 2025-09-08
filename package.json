@@ -1,12 +1,12 @@
 {
-  "name": "icons",
+  "name": "vscicons",
   "displayName": "Icons",
-  "description": "Icons for Visual Studio Code.",
-  "version": "3.8.0",
-  "publisher": "tal7aouy",
+  "description": "Icons for Visual Studio Code",
+  "version": "1.0.0",
+  "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.101.0"
   },
   "activationEvents": [
     "onIdentity:identity"
@@ -42,17 +42,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tal7aouy/vscode-icons.git"
+    "url": "git+https://github.com/yusifaliyevpro/vscode-icons.git"
   },
   "author": {
-    "email": "talhaouycoding@gmail.com",
-    "name": "Mhammed Talhaouy"
+    "email": "yusifaliyevpro@gmail.com",
+    "name": "Yusif Aliyev"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tal7aouy/vscode-icons/issues"
+    "url": "https://github.com/yusifaliyevpro/vscode-icons/issues"
   },
-  "homepage": "https://github.com/tal7aouy/vscode-icons#readme",
+  "homepage": "https://github.com/yusifaliyevpro/vscode-icons#readme",
   "devDependencies": {
     "@types/node": "^22.16.0",
     "@types/vscode": "^1.101.0",
