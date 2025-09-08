@@ -56,7 +56,6 @@ export default {
   measure: "_fd_folder_benchmark",
   measures: "_fd_folder_benchmark",
   measurement: "_fd_folder_benchmark",
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   bower_components: "_fd_folder_bower",
   cart: "_fd_folder_cart",
   "shopping-cart": "_fd_folder_cart",
@@ -400,7 +399,7 @@ export default {
   classes: "_fd_folder_model",
   ".moon": "_fd_folder_moon",
   ".next": "_fd_folder_next",
-  "cmake": "_fd_folder_cmake",
+  cmake: "_fd_folder_cmake",
   node_modules: "_fd_folder_node",
   ".nuxt": "_fd_folder_nuxt",
   nuxt: "_fd_folder_nuxt",
