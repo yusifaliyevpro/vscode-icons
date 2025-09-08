@@ -247,6 +247,7 @@ export default {
   "dune-project": "_f_dune",
   "dune-workspace": "_f_dune",
   "dune-workspace.dev": "_f_dune",
+  ".rayignore": "_f_raycast",
   ".editorconfig": "_f_editorconfig",
   ".mailmap": "_f_email",
   ".ember-cli": "_f_ember",
