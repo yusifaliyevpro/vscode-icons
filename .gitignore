@@ -7,3 +7,5 @@ package-lock.json
 *.vsix
 icons.json
 *.lock
+pnpm-lock.yaml
+pnpm-workspace.yaml
