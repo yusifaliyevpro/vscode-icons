@@ -14,7 +14,8 @@
   "scripts": {
     "build": "tsc && node ./out/extension.js",
     "package": "vsce package",
-    "lint": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts --fix",
+    "build:local": "pnpm build && pnpm package && code --install-extension vscicons-1.0.0.vsix"
   },
   "categories": [
     "Other",

@@ -643,6 +643,7 @@ const icons: Icon = {
   ...icon("handlebars"),
   ...icon("webpack"),
   ...icon("ruby"),
+
   ...icon("jest"),
   ...icon("babel"),
   ...icon("elixir"),
@@ -757,6 +758,7 @@ const icons: Icon = {
   ...icon("steadybit"),
   ...icon("tobi"),
   ...icon("puppeteer"),
+  ...icon("sanity"),
 };
 
 export default icons;
