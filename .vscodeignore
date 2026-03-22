@@ -19,3 +19,5 @@ yarn.lock
 pnpm-lock.yaml
 pnpm-workspace.yaml
 webpack.config.js
+CLAUDE.md
+folder-maker/**
