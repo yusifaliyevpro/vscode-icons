@@ -1,0 +1,82 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Verify all referenced SVGs exist
+        run: |
+          node --no-warnings -e "
+            import fs from 'fs';
+            import path from 'path';
+            const iconsTs = fs.readFileSync('src/icons.ts', 'utf8');
+            const regex = /\.\.\.(?:icon|folderIcon|iconGeneric)\(\"([^\"]+)\"\)/g;
+            const missing = [];
+            let m;
+            while ((m = regex.exec(iconsTs)) !== null) {
+              if (!fs.existsSync(path.join('icons', m[1] + '.svg'))) missing.push(m[1] + '.svg');
+            }
+            if (missing.length) {
+              console.error('Missing SVG files referenced in src/icons.ts:');
+              missing.forEach(f => console.error('  • ' + f));
+              process.exit(1);
+            }
+            console.log('All referenced SVGs exist.');
+          "
+
+      - name: TypeScript check
+        run: pnpm tsc --noEmit
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Prettier check
+        run: pnpm prettier --check "src/**/*.ts"
+
+      - name: Build
+        run: pnpm build
+
+  version-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.base_ref }}
+          path: base
+
+      - name: Check version not changed
+        run: |
+          PR_VERSION=$(jq -r .version package.json)
+          BASE_VERSION=$(jq -r .version base/package.json)
+
+          if [ "$PR_VERSION" != "$BASE_VERSION" ]; then
+            echo "::error::Version was changed from $BASE_VERSION to $PR_VERSION. Only the maintainer can change the version."
+            exit 1
+          fi

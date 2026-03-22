@@ -28,9 +28,7 @@ interface Target {
 function parseViewBox(svgContent: string): ViewBox {
   const viewBoxMatch = svgContent.match(/viewBox=["']([^"']+)["']/);
   if (viewBoxMatch) {
-    const [minX, minY, width, height] = viewBoxMatch[1]
-      .split(/[\s,]+/)
-      .map(Number);
+    const [minX, minY, width, height] = viewBoxMatch[1].split(/[\s,]+/).map(Number);
     return { minX, minY, width, height };
   }
 
@@ -46,9 +44,7 @@ function parseViewBox(svgContent: string): ViewBox {
     };
   }
 
-  console.error(
-    "Error: Could not determine viewBox or width/height from the SVG.",
-  );
+  console.error("Error: Could not determine viewBox or width/height from the SVG.");
   process.exit(1);
 }
 
@@ -73,21 +69,15 @@ function buildTransform(viewBox: ViewBox, target: Target): string {
   const scaledH = viewBox.height * scale;
 
   // Center in the target region
-  const translateX =
-    target.x + (target.width - scaledW) / 2 - viewBox.minX * scale;
-  const translateY =
-    target.y + (target.height - scaledH) / 2 - viewBox.minY * scale;
+  const translateX = target.x + (target.width - scaledW) / 2 - viewBox.minX * scale;
+  const translateY = target.y + (target.height - scaledH) / 2 - viewBox.minY * scale;
 
   // Round to 5 decimal places for clean output
   const r = (n: number) => Math.round(n * 100000) / 100000;
   return `matrix(${r(scale)} 0 0 ${r(scale)} ${r(translateX)} ${r(translateY)})`;
 }
 
-function generateFolderSvg(
-  folderPath: string,
-  logoContent: string,
-  transform: string,
-): string {
+function generateFolderSvg(folderPath: string, logoContent: string, transform: string): string {
   return `<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4142" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">${folderPath}<g transform="${transform}">${logoContent}</g></svg>\n`;
 }
 
@@ -117,28 +107,14 @@ const outputDir = path.join(_dirname, "output");
 const files = fs.readdirSync(inputDir).filter((f) => f.endsWith(".svg"));
 
 if (files.length === 0) {
-  console.log(
-    "Usage: Place your logo SVG (e.g. vercel.svg) in this folder, then run:",
-  );
-  console.log("  node --experimental-strip-types folder-maker/generate.ts");
-  console.log(
-    "  node --experimental-strip-types folder-maker/generate.ts --scale 1.2    (20% bigger)",
-  );
-  console.log(
-    "  node --experimental-strip-types folder-maker/generate.ts --scale 0.8    (20% smaller)",
-  );
-  console.log(
-    "  node --experimental-strip-types folder-maker/generate.ts --x 0.5        (shift right by 0.5)",
-  );
-  console.log(
-    "  node --experimental-strip-types folder-maker/generate.ts --y -1          (shift up by 1)",
-  );
-  console.log(
-    "  node --experimental-strip-types folder-maker/generate.ts --scale 1.1 --x 0.5 --y -0.3",
-  );
-  console.log(
-    "\nOutput: folder_vercel.svg and folder_vercel_open.svg in output/",
-  );
+  console.log("Usage: Place your logo SVG (e.g. vercel.svg) in this folder, then run:");
+  console.log("  node --experimental-strip-types folder-icon-maker/generate.ts");
+  console.log("  node --experimental-strip-types folder-icon-maker/generate.ts --scale 1.2    (20% bigger)");
+  console.log("  node --experimental-strip-types folder-icon-maker/generate.ts --scale 0.8    (20% smaller)");
+  console.log("  node --experimental-strip-types folder-icon-maker/generate.ts --x 0.5        (shift right by 0.5)");
+  console.log("  node --experimental-strip-types folder-icon-maker/generate.ts --y -1          (shift up by 1)");
+  console.log("  node --experimental-strip-types folder-icon-maker/generate.ts --scale 1.1 --x 0.5 --y -0.3");
+  console.log("\nOutput: folder_vercel.svg and folder_vercel_open.svg in output/");
   process.exit(0);
 }
 
@@ -154,11 +130,7 @@ for (const file of files) {
   const innerContent = extractInnerContent(svgContent);
   const transform = buildTransform(viewBox, target);
 
-  const closedSvg = generateFolderSvg(
-    FOLDER_CLOSED_PATH,
-    innerContent,
-    transform,
-  );
+  const closedSvg = generateFolderSvg(FOLDER_CLOSED_PATH, innerContent, transform);
   const openSvg = generateFolderSvg(FOLDER_OPEN_PATH, innerContent, transform);
 
   const closedPath = path.join(outputDir, `folder_${name}.svg`);

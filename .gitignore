@@ -9,5 +9,5 @@ icons.json
 *.lock
 pnpm-lock.yaml
 pnpm-workspace.yaml
-folder-maker/output
-folder-maker/*.svg
+folder-icon-maker/output
+folder-icon-maker/*.svg

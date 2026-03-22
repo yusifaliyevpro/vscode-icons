@@ -13,5 +13,5 @@ fs.writeFile(
     if (err) {
       console.log("error", err);
     }
-  }
+  },
 );

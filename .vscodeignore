@@ -20,4 +20,5 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 webpack.config.js
 CLAUDE.md
-folder-maker/**
+folder-icon-maker/**
+scripts/**

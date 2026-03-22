@@ -1,0 +1,25 @@
+name: Bug Report
+description: Report a wrong icon, missing icon, or other issue
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's wrong? Which file/folder shows the incorrect icon?
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      placeholder: e.g., 1.0.1
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: If applicable, add a screenshot showing the issue.
