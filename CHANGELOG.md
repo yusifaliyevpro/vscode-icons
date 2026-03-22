@@ -1,3 +1,7 @@
+# v1.0.4
+
+- Add contributing section to README
+
 # v1.0.3
 
 - Fix GitHub release notes rendering (use --notes-file to avoid shell interpretation of backticks)

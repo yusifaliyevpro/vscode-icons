@@ -20,6 +20,10 @@
 >
 > This extension is now maintained by **[yusifaliyevpro](https://github.com/yusifaliyevpro)**. Contributions and PRs are welcome!
 
+## Contributing
+
+Missing an icon for your favorite language or tool? You can add it yourself! Check out the [Contributing Guide](CONTRIBUTING.md) to learn how to add new file or folder icons and open a PR.
+
 ## File icons
 
 <img src="./images/fileIcons.png" alt="file icons">
@@ -47,7 +51,7 @@ I can add more icons if you need, [open a **new** issue](https://github.com/yusi
 
 ## Changelog
 
-[See full changelog here](https://github.com/yusifaliyevpro/vscode-icons/blob/master/CHANGELOG.md)
+[See full changelog here](https://github.com/yusifaliyevpro/vscode-icons/blob/main/CHANGELOG.md)
 
 ## Icon sources
 
