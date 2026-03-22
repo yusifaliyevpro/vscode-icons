@@ -81,3 +81,19 @@ jobs:
             echo "::error::Version was changed from $BASE_VERSION to $PR_VERSION. Only the maintainer can change the version."
             exit 1
           fi
+
+      - name: Changelog updated if version changed
+        if: github.event.pull_request.user.login == 'yusifaliyevpro'
+        run: |
+          PR_VERSION=$(jq -r .version package.json)
+          BASE_VERSION=$(jq -r .version base/package.json)
+
+          if [ "$PR_VERSION" != "$BASE_VERSION" ]; then
+            if ! git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q '^CHANGELOG.md$'; then
+              echo "::error::Version was changed but CHANGELOG.md was not updated. Please add a changelog entry for v$PR_VERSION."
+              exit 1
+            fi
+            echo "Version changed and CHANGELOG.md updated."
+          else
+            echo "Version not changed, skipping changelog check."
+          fi

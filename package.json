@@ -2,7 +2,7 @@
   "name": "vscicons",
   "displayName": "Icons (Maintained)",
   "description": "Icons for Visual Studio Code",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
