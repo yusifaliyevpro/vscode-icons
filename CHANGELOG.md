@@ -1,3 +1,9 @@
+# v1.0.3
+
+- Fix GitHub release notes rendering (use --notes-file to avoid shell interpretation of backticks)
+- Add icon existence check to PR check CI workflow
+- Updated script (`pnpm pre-check`)
+
 # v1.0.2
 
 - Add CONTRIBUTING guide with icon addition instructions
