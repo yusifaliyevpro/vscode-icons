@@ -1,0 +1,33 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4142" version="1.1" xml:space="preserve">
+ <g>
+  <title>Layer 1</title>
+  <path d="m19,20l-15,0c-1.11,0 -2,-0.9 -2,-2l0,-12c0,-1.11 0.89,-2 2,-2l6,0l2,2l7,0c1.097,0 2,0.903 2,2l-17,0l0,10l2.14,-8l17.07,0l-2.28,8.5c-0.23,0.87 -1.01,1.5 -1.93,1.5z" fill="#45403d" fill-rule="nonzero" id="svg_1"/>
+  <g transform="matrix(.67606 0 0 .67606 9.1073 7.3873)" fill="#bbdefb" id="svg_2"/>
+  <g stroke="null" id="svg_7">
+   <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+   <title stroke="null">Group</title>
+   <desc stroke="null">Created with Sketch.</desc>
+   <g stroke="null" id="svg_3" fill="none" fill-rule="evenodd">
+    <g stroke="null" id="svg_4">
+     <g stroke="null" id="svg_5">
+      <g stroke="null" id="svg_6">
+       <g stroke="null" id="svg_8">
+        <path stroke="null" id="svg_9" d="m18.29002,13.0689l-0.00948,-2.47515l-1.42324,0l0.00948,2.47515l0.71163,0.94773l0.71163,-0.94773l-0.00001,0z" fill="#FFFFFF"/>
+        <path stroke="null" id="svg_10" d="m16.86678,17.31069l0,2.48435l1.42324,0l0,-2.48435l-0.71163,-0.94773l-0.71163,0.94773l0.00001,0z" fill="#FFFFFF"/>
+        <path stroke="null" id="svg_11" d="m18.29002,17.31069l1.49914,2.00588l1.14808,-0.80971l-1.49914,-2.00588l-1.14808,-0.35885l0,1.16856z" fill="#00F2E6"/>
+        <path stroke="null" id="svg_12" d="m16.86678,13.0689l-1.50864,-2.00588l-1.14808,0.80971l1.49914,2.00588l1.15757,0.35885l0,-1.16856l0.00001,0z" fill="#00F2E6"/>
+        <path stroke="null" id="svg_13" d="m15.70921,13.87861l-2.42901,-0.76371l-0.43646,1.30659l2.42901,0.7729l1.14808,-0.36805l-0.71163,-0.94773z" fill="#00B9F1"/>
+        <path stroke="null" id="svg_14" d="m18.72649,15.55325l0.71163,0.94773l2.42901,0.76371l0.43646,-1.30659l-2.42901,-0.76371l-1.14808,0.35885z" fill="#00B9F1"/>
+        <path stroke="null" id="svg_15" d="m19.87457,15.1944l2.42901,-0.7729l-0.43646,-1.30659l-2.42901,0.76371l-0.71163,0.94773l1.14808,0.36805z" fill="#D63AFF"/>
+        <path stroke="null" id="svg_16" d="m15.27276,15.1944l-2.42901,0.76371l0.43646,1.30659l2.42901,-0.76371l0.71163,-0.94773l-1.14808,-0.35885z" fill="#D63AFF"/>
+        <path stroke="null" id="svg_17" d="m15.70921,16.50098l-1.49914,2.00588l1.14808,0.80971l1.50864,-2.00588l0,-1.16856l-1.15757,0.35885l-0.00001,0z" fill="#FB015B"/>
+        <path stroke="null" id="svg_18" d="m19.4381,13.87861l1.49914,-2.00588l-1.14808,-0.80971l-1.49914,2.00588l0,1.16856l1.14808,-0.35885z" fill="#FB015B"/>
+       </g>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+
+</svg>

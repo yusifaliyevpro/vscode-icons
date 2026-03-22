@@ -1,0 +1,33 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:undefined="http://www.bohemiancoding.com/sketch/ns">
+
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" fill="#45403d" d="m10,4l-6,0c-1.11,0 -2,0.89 -2,2l0,12a2,2 0 0 0 2,2l16,0a2,2 0 0 0 2,-2l0,-10c0,-1.11 -0.9,-2 -2,-2l-8,0l-2,-2z"/>
+  <g stroke="null">
+   <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+   <title stroke="null">Group</title>
+   <desc stroke="null">Created with Sketch.</desc>
+
+   <g stroke="null"  fill-rule="evenodd" fill="none" id="svg_2">
+    <g stroke="null" transform="translate(-150 -538)"  id="svg_3">
+     <g stroke="null"  transform="translate(0 413)" id="svg_4">
+      <g stroke="null" id="svg_5" transform="translate(150 125)">
+       <g stroke="null">
+        <path stroke="null" fill="#FFFFFF" d="m16.59208,11.16075l-0.01148,-3.16075l-1.72267,0l0.01148,3.16075l0.86133,1.21025l0.86133,-1.21025z"/>
+        <path stroke="null" fill="#FFFFFF" d="m14.86941,16.5775l0,3.1725l1.72267,0l0,-3.1725l-0.86133,-1.21025l-0.86133,1.21025z"/>
+        <path stroke="null" fill="#00F2E6" d="m16.59208,16.5775l1.81454,2.5615l1.38962,-1.034l-1.81454,-2.5615l-1.38962,-0.45825l0,1.49225z"/>
+        <path stroke="null" fill="#00F2E6" d="m14.86941,11.16075l-1.82603,-2.5615l-1.38962,1.034l1.81454,2.5615l1.4011,0.45825l0,-1.49225z"/>
+        <path stroke="null" fill="#00B9F1" d="m13.4683,12.19475l-2.94002,-0.97525l-0.52828,1.6685l2.94002,0.987l1.38962,-0.47l-0.86133,-1.21025z"/>
+        <path stroke="null" fill="#00B9F1" d="m17.12036,14.33325l0.86133,1.21025l2.94002,0.97525l0.52828,-1.6685l-2.94002,-0.97525l-1.38962,0.45825z"/>
+        <path stroke="null" fill="#D63AFF" d="m18.50998,13.875l2.94002,-0.987l-0.52828,-1.6685l-2.94002,0.97525l-0.86133,1.21025l1.38962,0.47z"/>
+        <path stroke="null" fill="#D63AFF" d="m12.94002,13.875l-2.94002,0.97525l0.52828,1.6685l2.94002,-0.97525l0.86133,-1.21025l-1.38962,-0.45825z"/>
+        <path stroke="null" fill="#FB015B" d="m13.4683,15.5435l-1.81454,2.5615l1.38962,1.034l1.82603,-2.5615l0,-1.49225l-1.4011,0.45825z"/>
+        <path stroke="null" fill="#FB015B" d="m17.9817,12.19475l1.81454,-2.5615l-1.38962,-1.034l-1.81454,2.5615l0,1.49225l1.38962,-0.45825z"/>
+       </g>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
