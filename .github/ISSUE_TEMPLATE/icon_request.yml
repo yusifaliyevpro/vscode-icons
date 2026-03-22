@@ -1,0 +1,28 @@
+name: Icon Request
+description: Request a new file or folder icon
+labels: ["icon-request"]
+body:
+  - type: dropdown
+    id: icon-type
+    attributes:
+      label: Icon type
+      options:
+        - File icon
+        - Folder icon
+        - Both
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: File extension, filename, or folder name
+      placeholder: e.g., ".astro", "bun.lockb", "hooks"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Link to the technology/tool, or any design references.

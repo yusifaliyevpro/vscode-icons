@@ -2,11 +2,11 @@
   "name": "vscicons",
   "displayName": "Icons (Maintained)",
   "description": "Icons for Visual Studio Code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
-    "vscode": "^1.110.0"
+    "vscode": "^1.60.0"
   },
   "activationEvents": [
     "onIdentity:identity"
@@ -15,8 +15,9 @@
     "build": "tsc && node ./out/extension.js",
     "package": "vsce package",
     "lint": "eslint . --ext .ts --fix",
-    "generate": "node --no-warnings folder-maker/generate.ts",
-    "build:local": "pnpm build && pnpm package && code --install-extension ./vscicons-1.0.0.vsix"
+    "generate": "node --no-warnings folder-icon-maker/generate.ts",
+    "pre-check": "node --no-warnings scripts/pre-check.ts",
+    "install:local": "pnpm build && pnpm package && code --install-extension ./vscicons-$(node -p \"require('./package.json').version\").vsix"
   },
   "categories": [
     "Other",
@@ -44,7 +45,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yusifaliyevpro/vscode-icons.git"
+    "url": "https://github.com/yusifaliyevpro/vscode-icons"
   },
   "author": {
     "email": "yusifaliyevpro@gmail.com",
@@ -57,12 +58,13 @@
   "homepage": "https://github.com/yusifaliyevpro/vscode-icons#readme",
   "devDependencies": {
     "@types/node": "^22.16.0",
-    "@types/vscode": "^1.110.0",
+    "@types/vscode": "^1.60.0",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
     "@vscode/vsce": "^3.7.1",
     "eslint": "^9.30.1",
     "nodemon": "^3.1.14",
+    "prettier": "^3.8.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.57.1"
   }
