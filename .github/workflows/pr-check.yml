@@ -72,6 +72,7 @@ jobs:
           path: base
 
       - name: Check version not changed
+        if: github.event.pull_request.user.login != 'yusifaliyevpro'
         run: |
           PR_VERSION=$(jq -r .version package.json)
           BASE_VERSION=$(jq -r .version base/package.json)
