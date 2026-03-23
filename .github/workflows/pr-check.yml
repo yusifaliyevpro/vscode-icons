@@ -26,25 +26,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Verify all referenced SVGs exist
-        run: |
-          node --no-warnings -e "
-            import fs from 'fs';
-            import path from 'path';
-            const iconsTs = fs.readFileSync('src/icons.ts', 'utf8');
-            const regex = /\.\.\.(?:icon|folderIcon|iconGeneric)\(\"([^\"]+)\"\)/g;
-            const missing = [];
-            let m;
-            while ((m = regex.exec(iconsTs)) !== null) {
-              if (!fs.existsSync(path.join('icons', m[1] + '.svg'))) missing.push(m[1] + '.svg');
-            }
-            if (missing.length) {
-              console.error('Missing SVG files referenced in src/icons.ts:');
-              missing.forEach(f => console.error('  • ' + f));
-              process.exit(1);
-            }
-            console.log('All referenced SVGs exist.');
-          "
+      - name: Verify icon integrity
+        run: node --no-warnings scripts/check-icons.ts
 
       - name: TypeScript check
         run: pnpm tsc --noEmit
@@ -89,11 +72,12 @@ jobs:
           BASE_VERSION=$(jq -r .version base/package.json)
 
           if [ "$PR_VERSION" != "$BASE_VERSION" ]; then
-            if ! git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q '^CHANGELOG.md$'; then
+            if ! diff -q CHANGELOG.md base/CHANGELOG.md > /dev/null 2>&1; then
+              echo "Version changed and CHANGELOG.md updated."
+            else
               echo "::error::Version was changed but CHANGELOG.md was not updated. Please add a changelog entry for v$PR_VERSION."
               exit 1
             fi
-            echo "Version changed and CHANGELOG.md updated."
           else
             echo "Version not changed, skipping changelog check."
           fi

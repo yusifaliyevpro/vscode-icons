@@ -378,6 +378,8 @@ const icons: Icon = {
   ...folderIcon("folder_react_open"),
   ...folderIcon("folder_sanity"),
   ...folderIcon("folder_sanity_open"),
+  ...folderIcon("folder_connection"),
+  ...folderIcon("folder_connection_open"),
   ...icon("abc"),
   ...icon("azure-pipelines"),
   ...icon("astro"),
@@ -768,6 +770,11 @@ const icons: Icon = {
   ...icon("claude"),
   ...icon("agentsmd"),
   ...icon("heroui"),
+  ...icon("conduct"),
+  ...icon("document"),
+  ...icon("eex"),
+  ...icon("pascal"),
+  ...icon("nunjucks"),
 };
 
 export default icons;

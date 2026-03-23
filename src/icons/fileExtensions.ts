@@ -30,7 +30,7 @@ export default {
   tlpp: "_f_advpl_tlpp",
   ai: "_f_ai",
   apk: "_f_android",
-  smali: "_f_androd",
+  smali: "_f_android",
   dex: "_f_android",
   "component.ts": "_f_angular-component",
   "component.js": "_f_angular-component",
