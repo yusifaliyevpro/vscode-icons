@@ -34,6 +34,9 @@ jobs:
       - name: Install vsce
         run: pnpm add -g @vscode/vsce
 
+      - name: Install ovsx
+        run: pnpm add -g ovsx
+
       - name: Build extension
         run: pnpm build
 
@@ -64,6 +67,12 @@ jobs:
           vsce publish -p $VSCE_TOKEN
         env:
           VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
+
+      - name: Publish to Open VSX
+        if: steps.check.outputs.version_changed == 'true'
+        run: ovsx publish -p $OVSX_TOKEN
+        env:
+          OVSX_TOKEN: ${{ secrets.OVSX_TOKEN }}
 
       - name: Extract changelog for this version
         if: steps.check.outputs.version_changed == 'true'
