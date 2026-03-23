@@ -72,11 +72,12 @@ jobs:
           BASE_VERSION=$(jq -r .version base/package.json)
 
           if [ "$PR_VERSION" != "$BASE_VERSION" ]; then
-            if ! git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -q '^CHANGELOG.md$'; then
+            if ! diff -q CHANGELOG.md base/CHANGELOG.md > /dev/null 2>&1; then
+              echo "Version changed and CHANGELOG.md updated."
+            else
               echo "::error::Version was changed but CHANGELOG.md was not updated. Please add a changelog entry for v$PR_VERSION."
               exit 1
             fi
-            echo "Version changed and CHANGELOG.md updated."
           else
             echo "Version not changed, skipping changelog check."
           fi
