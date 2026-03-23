@@ -6,13 +6,9 @@
 // Checks: Icon files exist · TypeScript · ESLint · Prettier · Build
 import { execSync } from "child_process";
 import * as readline from "readline";
-import * as fs from "fs";
-import * as path from "path";
-
 interface Check {
   name: string;
-  cmd?: string;
-  fn?: () => string | null;
+  cmd: string;
   onFail?: string;
 }
 
@@ -38,34 +34,11 @@ function ask(question: string): Promise<boolean> {
   });
 }
 
-// ── Icon existence check ──────────────────────────────────────────
-function checkIconsExist(): string | null {
-  const rootDir = path.resolve(import.meta.dirname, "..");
-  const iconsTs = fs.readFileSync(path.join(rootDir, "src", "icons.ts"), "utf8");
-  const iconsDir = path.join(rootDir, "icons");
-
-  const regex = /\.\.\.(?:icon|folderIcon|iconGeneric)\("([^"]+)"\)/g;
-  const missing: string[] = [];
-  let match: RegExpExecArray | null;
-
-  while ((match = regex.exec(iconsTs)) !== null) {
-    const svgPath = path.join(iconsDir, `${match[1]}.svg`);
-    if (!fs.existsSync(svgPath)) {
-      missing.push(`${match[1]}.svg`);
-    }
-  }
-
-  if (missing.length > 0) {
-    return `Missing ${missing.length} SVG file(s) referenced in src/icons.ts:\n${missing.map((f) => `  • ${f}`).join("\n")}`;
-  }
-  return null;
-}
-
 // ── Checks (same order as CI) ─────────────────────────────────────
 const checks: Check[] = [
   {
-    name: "Icons — verify all referenced SVGs exist",
-    fn: checkIconsExist,
+    name: "Icons — verify icon integrity",
+    cmd: "node --no-warnings scripts/check-icons.ts",
   },
   {
     name: "Prettier — format check",
@@ -97,27 +70,11 @@ console.log(`${BOLD}${CYAN}═════════════════�
 
 for (const check of checks) {
   console.log(`${BOLD}${YELLOW}▶ ${check.name}${RESET}`);
-
-  if (check.fn) {
-    const error = check.fn();
-    if (error) {
-      console.log(`\n${RED}${error}${RESET}`);
-      console.log(`\n${RED}✖ FAILED: ${check.name}${RESET}\n`);
-      failed++;
-      failures.push(check.name);
-    } else {
-      console.log(`\n${GREEN}✔ PASSED: ${check.name}${RESET}\n`);
-      passed++;
-    }
-    console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
-    continue;
-  }
-
   console.log(`  ${CYAN}$ ${check.cmd}${RESET}\n`);
 
   let errorOutput = "";
   try {
-    const result = execSync(check.cmd!, {
+    const result = execSync(check.cmd, {
       encoding: "utf8",
       stdio: ["inherit", "inherit", "pipe"],
     });

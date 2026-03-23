@@ -1,3 +1,9 @@
+# v1.0.5
+
+- Fix broken icon mappings (smali, docker-compose.debug, .watchmanconfig, changesets, vscode-test folders)
+- Add reverse icon check — mapping files are now validated against icons.ts definitions
+- Clickable file:line references in check-icons output
+
 # v1.0.4
 
 - Add contributing section to README
