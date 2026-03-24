@@ -1,8 +1,8 @@
 {
   "name": "vscicons",
-  "displayName": "Icons (Maintained)",
-  "description": "Icons for Visual Studio Code",
-  "version": "1.0.5",
+  "displayName": "Icons – Maintained",
+  "description": "Beautiful file and folder icons for Visual Studio Code",
+  "version": "1.0.6",
   "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
@@ -20,8 +20,8 @@
     "install:local": "pnpm build && pnpm package && code --install-extension ./vscicons-$(node -p \"require('./package.json').version\").vsix"
   },
   "categories": [
-    "Other",
-    "Themes"
+    "Themes",
+    "Other"
   ],
   "contributes": {
     "iconThemes": [
@@ -41,7 +41,10 @@
     "icons",
     "theme",
     "icon-theme",
-    "others"
+    "file-icons",
+    "folder-icons",
+    "vscode-icons",
+    "material-icons"
   ],
   "repository": {
     "type": "git",

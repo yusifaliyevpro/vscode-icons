@@ -21,4 +21,5 @@ pnpm-workspace.yaml
 webpack.config.js
 CLAUDE.md
 folder-icon-maker/**
+icons-unused/**
 scripts/**

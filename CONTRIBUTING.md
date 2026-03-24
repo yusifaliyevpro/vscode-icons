@@ -4,7 +4,9 @@ Thanks for your interest in contributing! This guide explains how to add new ico
 
 ## Adding a File Icon
 
-1. **Add the SVG** — Place your icon SVG in the `icons/` directory (e.g., `icons/myicon.svg`).
+Before creating a new SVG, check the `icons-unused/` folder — it contains icons that are already designed but not yet mapped to any file extension or filename. If the icon you need is there, you can skip straight to step 2.
+
+1. **Add the SVG** — Place your icon SVG in the `icons/` directory (e.g., `icons/myicon.svg`). If you're using an icon from `icons-unused/`, move it to `icons/` first.
 
 2. **Register the icon** — In `src/icons.ts`, add an entry using the `icon()` factory:
 
@@ -15,7 +17,6 @@ Thanks for your interest in contributing! This guide explains how to add new ico
    This creates an icon with ID `_f_myicon` pointing to `./icons/myicon.svg`.
 
 3. **Map it to file extensions or filenames** — Edit the appropriate file in `src/icons/`:
-
    - **`fileExtensions.ts`** — Map file extensions to your icon:
      ```ts
      myext: "_f_myicon",
@@ -79,7 +80,6 @@ Folder icons require two SVG variants: a closed folder and an open folder. You c
    This creates two IDs: `_fd_folder_mylogo` (closed) and `_fd_folder_mylogo_open` (expanded).
 
 5. **Map it to folder names** — Add entries in both:
-
    - **`src/icons/folderNames.ts`** (closed state):
      ```ts
      mylogo: "_fd_folder_mylogo",
@@ -93,22 +93,23 @@ Folder icons require two SVG variants: a closed folder and an open folder. You c
 
 ## Files Overview
 
-| File | Purpose |
-|------|---------|
-| `icons/` | SVG icon assets |
-| `src/icons.ts` | Icon registry — maps icon IDs to SVG paths |
-| `src/icons/fileExtensions.ts` | File extension → icon ID mappings |
-| `src/icons/fileNames.ts` | Exact filename → icon ID mappings |
-| `src/icons/folderNames.ts` | Folder name → closed folder icon ID |
-| `src/icons/folderNamesExpanded.ts` | Folder name → expanded folder icon ID |
-| `src/helper.ts` | `make()` helper for batch mappings |
-| `folder-icon-maker/` | Tool to generate folder icon SVGs from a logo |
+| File                               | Purpose                                       |
+| ---------------------------------- | --------------------------------------------- |
+| `icons/`                           | Active SVG icon assets                        |
+| `icons-unused/`                    | Designed but unmapped icons — check here first before creating a new SVG |
+| `src/icons.ts`                     | Icon registry — maps icon IDs to SVG paths    |
+| `src/icons/fileExtensions.ts`      | File extension → icon ID mappings             |
+| `src/icons/fileNames.ts`           | Exact filename → icon ID mappings             |
+| `src/icons/folderNames.ts`         | Folder name → closed folder icon ID           |
+| `src/icons/folderNamesExpanded.ts` | Folder name → expanded folder icon ID         |
+| `src/helper.ts`                    | `make()` helper for batch mappings            |
+| `folder-icon-maker/`               | Tool to generate folder icon SVGs from a logo |
 
 ## Local Testing
 
 To test your changes locally in VS Code:
 
-1. **Uninstall the production extension** first — if you have **Icons (Maintained)** installed from the marketplace, uninstall it to avoid conflicts.
+1. **Uninstall the production extension** first — if you have **Icons - Maintained** installed from the marketplace, uninstall it to avoid conflicts.
 
 2. **Build and install locally:**
 

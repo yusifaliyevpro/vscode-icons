@@ -1,5 +1,3 @@
 {
-	"ignore": [
-		"icons.json"
-	]
+  "ignore": ["icons.json"]
 }
