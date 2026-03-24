@@ -382,6 +382,8 @@ const icons: Icon = {
   ...folderIcon("folder_connection_open"),
   ...folderIcon("folder_kotlin"),
   ...folderIcon("folder_kotlin_open"),
+  ...folderIcon("folder_eslint"),
+  ...folderIcon("folder_eslint_open"),
   ...icon("abc"),
   ...icon("azure-pipelines"),
   ...icon("astro"),

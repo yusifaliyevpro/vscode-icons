@@ -14,8 +14,10 @@
   "scripts": {
     "build": "tsc && node ./out/extension.js",
     "package": "vsce package",
-    "lint": "eslint . --ext .ts --fix",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
     "generate": "node --no-warnings folder-icon-maker/generate.ts",
+    "sort-icons": "node --no-warnings scripts/sort-icons.ts",
     "pre-check": "node --no-warnings scripts/pre-check.ts",
     "install:local": "pnpm build && pnpm package && code --install-extension ./vscicons-$(node -p \"require('./package.json').version\").vsix"
   },
