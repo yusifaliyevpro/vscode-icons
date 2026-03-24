@@ -1,8 +1,8 @@
 {
   "name": "vscicons",
-  "displayName": "Icons (Maintained)",
-  "description": "Icons for Visual Studio Code",
-  "version": "1.0.5",
+  "displayName": "Icons – Maintained",
+  "description": "Beautiful file and folder icons for Visual Studio Code",
+  "version": "1.0.6",
   "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
@@ -14,14 +14,16 @@
   "scripts": {
     "build": "tsc && node ./out/extension.js",
     "package": "vsce package",
-    "lint": "eslint . --ext .ts --fix",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
     "generate": "node --no-warnings folder-icon-maker/generate.ts",
+    "sort-icons": "node --no-warnings scripts/sort-icons.ts",
     "pre-check": "node --no-warnings scripts/pre-check.ts",
     "install:local": "pnpm build && pnpm package && code --install-extension ./vscicons-$(node -p \"require('./package.json').version\").vsix"
   },
   "categories": [
-    "Other",
-    "Themes"
+    "Themes",
+    "Other"
   ],
   "contributes": {
     "iconThemes": [
@@ -41,7 +43,10 @@
     "icons",
     "theme",
     "icon-theme",
-    "others"
+    "file-icons",
+    "folder-icons",
+    "vscode-icons",
+    "material-icons"
   ],
   "repository": {
     "type": "git",

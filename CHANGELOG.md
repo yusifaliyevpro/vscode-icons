@@ -1,3 +1,13 @@
+# v1.0.6
+
+- Rename extension display name to "Icons – Maintained"
+- Added kotlin folder, expo folder, output folder icons and more
+- Update description and keywords for better Marketplace discoverability
+- Update README to reflect Open VSX availability (Cursor, VSCodium, Antigravity, Gitpod and more)
+- Split installation instructions into VS Code Marketplace and Open VSX sections with direct links
+- Add unused icon check — icon IDs declared in `src/icons.ts` but not used in any mapping file are now reported
+- Improve `check-icons` output for unused icons: shows original declaration and SVG path
+
 # v1.0.5
 
 - Fix broken icon mappings (smali, docker-compose.debug, .watchmanconfig, changesets, vscode-test folders)

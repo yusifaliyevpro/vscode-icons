@@ -65,8 +65,8 @@ let failed = 0;
 const failures: string[] = [];
 
 console.log(`\n${BOLD}${CYAN}══════════════════════════════════════════════════${RESET}`);
-console.log(`${BOLD}${CYAN}   Pre-Check — Icons (Maintained)${RESET}`);
 console.log(`${BOLD}${CYAN}══════════════════════════════════════════════════${RESET}\n`);
+console.log(`${BOLD}${CYAN}   Pre-Check — Icons Maintained${RESET}`);
 
 for (const check of checks) {
   console.log(`${BOLD}${YELLOW}▶ ${check.name}${RESET}`);
@@ -78,21 +78,23 @@ for (const check of checks) {
       encoding: "utf8",
       stdio: ["inherit", "inherit", "pipe"],
     });
-    if (result) {process.stdout.write(result);}
+    if (result) {
+      process.stdout.write(result);
+    }
     console.log(`\n${GREEN}✔ PASSED: ${check.name}${RESET}\n`);
     passed++;
   } catch (err: unknown) {
     if (err && typeof err === "object" && "stderr" in err) {
       errorOutput = String((err as { stderr: string }).stderr ?? "");
     }
-    if (errorOutput) {process.stderr.write(errorOutput);}
+    if (errorOutput) {
+      process.stderr.write(errorOutput);
+    }
     console.log(`\n${RED}✖ FAILED: ${check.name}${RESET}`);
 
     if (check.onFail) {
       console.log(`\n${YELLOW}  Some files are not formatted correctly.${RESET}`);
-      const confirm = await ask(
-        `${YELLOW}${BOLD}  Run "${check.onFail}" to auto-fix? [Enter = yes / n = skip]: ${RESET}`,
-      );
+      const confirm = await ask(`${YELLOW}${BOLD}  Run "${check.onFail}" to auto-fix? [Enter = yes / n = skip]: ${RESET}`);
       if (confirm) {
         try {
           console.log(`\n  ${CYAN}$ ${check.onFail}${RESET}\n`);
@@ -119,9 +121,7 @@ for (const check of checks) {
 
 // ── Summary ───────────────────────────────────────────────────────
 console.log(`${BOLD}${CYAN}══════════════════════════════════════════════════${RESET}`);
-console.log(
-  `${BOLD}   Results: ${GREEN}${passed} passed${RESET}${BOLD}, ${failed > 0 ? RED : GREEN}${failed} failed${RESET}`,
-);
+console.log(`${BOLD}   Results: ${GREEN}${passed} passed${RESET}${BOLD}, ${failed > 0 ? RED : GREEN}${failed} failed${RESET}`);
 
 if (failures.length > 0) {
   console.log(`\n${RED}${BOLD}Failed checks:${RESET}`);
