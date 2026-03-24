@@ -1,6 +1,7 @@
 # v1.0.6
 
 - Rename extension display name to "Icons – Maintained"
+- Added kotlin folder, expo folder, output folder icons and more
 - Update description and keywords for better Marketplace discoverability
 - Update README to reflect Open VSX availability (Cursor, VSCodium, Antigravity, Gitpod and more)
 - Split installation instructions into VS Code Marketplace and Open VSX sections with direct links
