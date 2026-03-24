@@ -236,6 +236,7 @@ export default {
   ".ember-cli.js": "_f_ember",
   ".env.defaults": "_f_env",
   ".env.dev": "_f_env",
+  ".env.build": "_f_env",
   ".env.development": "_f_env",
   ".env.development.local": "_f_env",
   ".env.dist": "_f_env",
