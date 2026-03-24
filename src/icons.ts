@@ -380,6 +380,8 @@ const icons: Icon = {
   ...folderIcon("folder_sanity_open"),
   ...folderIcon("folder_connection"),
   ...folderIcon("folder_connection_open"),
+  ...folderIcon("folder_kotlin"),
+  ...folderIcon("folder_kotlin_open"),
   ...icon("abc"),
   ...icon("azure-pipelines"),
   ...icon("astro"),

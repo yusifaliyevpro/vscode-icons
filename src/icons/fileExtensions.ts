@@ -127,6 +127,7 @@ export default {
   fish: "_f_console",
   exp: "_f_console",
   cpp: "_f_cpp",
+
   cc: "_f_cpp",
   cxx: "_f_cpp",
   "c++": "_f_cpp",
@@ -265,6 +266,7 @@ export default {
   jar: "_f_jar",
   java: "_f_java",
   jsp: "_f_java",
+  jks: "_f_java",
   class: "_f_javaclass",
   jenkins: "_f_jenkins",
   jinja: "_f_jinja",
