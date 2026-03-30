@@ -133,6 +133,7 @@ export default {
   credentials: "_fd_folder_keys_open",
   _css: "_fd_folder_css_open",
   css: "_fd_folder_css_open",
+  ".cursor": "_fd_folder_cursor_open",
   custom: "_fd_folder_custom_open",
   customs: "_fd_folder_custom_open",
   ".cypress": "_fd_folder_cypress_open",
