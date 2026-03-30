@@ -1,3 +1,8 @@
+# 1.0.7
+
+- Changed icon of extension for better compability with Microsoft policies
+- Added Cursor IDE icons (.cursorrules, .cursorignore, .mdc file extension)
+
 # v1.0.6
 
 - Rename extension display name to "Icons – Maintained"

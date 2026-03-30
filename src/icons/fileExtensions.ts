@@ -304,6 +304,7 @@ export default {
   mcworld: "_f_minecraft",
   md: "_f_markdown",
   mdb: "_f_database",
+  mdc: "_f_cursor",
   mdx: "_f_mdx",
   merlin: "_f_merlin",
   mesh: "_f_3d",
