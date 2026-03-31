@@ -8,7 +8,7 @@ export default defineConfig([
   {
     files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
-      ecmaVersion: 6,
+      ecmaVersion: 20,
       sourceType: "module",
       parser: tseslint.parser,
     },

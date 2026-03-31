@@ -14,8 +14,8 @@
   "scripts": {
     "build": "tsc && node ./out/extension.js",
     "package": "vsce package",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "generate": "node --no-warnings folder-icon-maker/generate.ts",
     "sort-icons": "node --no-warnings scripts/sort-icons.ts",
     "pre-check": "node --no-warnings scripts/pre-check.ts",
@@ -64,13 +64,13 @@
   "devDependencies": {
     "@types/node": "^22.16.0",
     "@types/vscode": "^1.60.0",
-    "@typescript-eslint/eslint-plugin": "^8.57.1",
-    "@typescript-eslint/parser": "^8.57.1",
+    "@typescript-eslint/eslint-plugin": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.0",
     "@vscode/vsce": "^3.7.1",
-    "eslint": "^9.30.1",
+    "eslint": "^9.39.4",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1"
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.0"
   }
 }

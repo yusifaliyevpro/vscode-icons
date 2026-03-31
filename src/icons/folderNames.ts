@@ -579,6 +579,7 @@ export default {
   validator: "_fd_folder_rules",
   validators: "_fd_folder_rules",
   vendor: "_fd_folder_library",
+  ".venv": "_fd_folder_python",
   ".vercel": "_fd_folder_vercel",
   video: "_fd_folder_video",
   videos: "_fd_folder_video",
