@@ -120,6 +120,7 @@ export default {
   csx: "_f_csharp",
   cts: "_f_typescript",
   "cts.map": "_f_tsmap",
+  "ts.map": "_f_tsmap",
   cu: "_f_cuda",
   cuh: "_f_cuda",
   cxx: "_f_cpp",

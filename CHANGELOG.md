@@ -1,3 +1,7 @@
+# v1.1.1
+
+- Added .ts.map extension
+
 # v1.1.0
 
 - Added `tsmap.svg` icon
