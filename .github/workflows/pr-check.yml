@@ -81,3 +81,36 @@ jobs:
           else
             echo "Version not changed, skipping changelog check."
           fi
+
+      - name: Validate changelog format if changed
+        run: |
+          if diff -q CHANGELOG.md base/CHANGELOG.md > /dev/null 2>&1; then
+            echo "CHANGELOG.md not changed, skipping format check."
+            exit 0
+          fi
+
+          echo "CHANGELOG.md changed, validating format..."
+
+          ENTRY_COUNT=$(grep -c "^# v" CHANGELOG.md || true)
+          if [ "$ENTRY_COUNT" -lt 1 ]; then
+            echo "::error::CHANGELOG.md has no entries. At least one entry is required."
+            exit 1
+          fi
+
+          INVALID=$(grep -n "^# [0-9]" CHANGELOG.md || true)
+          if [ -n "$INVALID" ]; then
+            echo "::error::CHANGELOG.md has version headings without 'v' prefix. All versions must be formatted as '# v1.0.8', not '# 1.0.8':"
+            echo "$INVALID"
+            exit 1
+          fi
+
+          FIRST_ENTRY=$(grep "^# v" CHANGELOG.md | head -1)
+          CHANGELOG_VERSION=$(echo "$FIRST_ENTRY" | sed 's/^# v//' | tr -d '[:space:]')
+          PKG_VERSION=$(jq -r .version package.json)
+
+          if [ "$CHANGELOG_VERSION" != "$PKG_VERSION" ]; then
+            echo "::error::Top CHANGELOG.md entry (v$CHANGELOG_VERSION) does not match package.json version ($PKG_VERSION)."
+            exit 1
+          fi
+
+          echo "CHANGELOG.md format is valid ($ENTRY_COUNT entries found)."

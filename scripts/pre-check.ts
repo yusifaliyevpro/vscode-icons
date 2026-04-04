@@ -5,6 +5,7 @@
 //
 // Checks: Icon files exist · TypeScript · ESLint · Prettier · Build
 import { execSync } from "child_process";
+import { readFileSync } from "fs";
 import * as readline from "readline";
 interface Check {
   name: string;
@@ -59,6 +60,73 @@ const checks: Check[] = [
   },
 ];
 
+// ── Changelog check ───────────────────────────────────────────────
+function checkChangelog(): boolean {
+  const name = "Changelog — format check";
+  console.log(`${BOLD}${YELLOW}▶ ${name}${RESET}`);
+
+  let statusOutput = "";
+  try {
+    statusOutput = execSync("git status --short CHANGELOG.md", { encoding: "utf8" }).trim();
+  } catch {
+    console.log(`${YELLOW}  Skipping: git not available${RESET}`);
+    console.log(`\n${GREEN}✔ PASSED: ${name}${RESET}\n`);
+    console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
+    return true;
+  }
+
+  if (!statusOutput) {
+    console.log(`  ${CYAN}CHANGELOG.md not changed, skipping.${RESET}`);
+    console.log(`\n${GREEN}✔ PASSED: ${name}${RESET}\n`);
+    console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
+    return true;
+  }
+
+  console.log(`  ${CYAN}CHANGELOG.md changed, validating...${RESET}\n`);
+
+  const content = readFileSync("CHANGELOG.md", "utf8");
+  const lines = content.split("\n");
+
+  const entries = lines.filter((l) => /^# v/.test(l));
+  if (entries.length === 0) {
+    console.log(`\n${RED}✖ FAILED: ${name}${RESET}`);
+    console.log(`${RED}  CHANGELOG.md has no entries. At least one entry is required.${RESET}`);
+    console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
+    return false;
+  }
+
+  const invalidLines = lines
+    .map((l, i) => ({ line: l, num: i + 1 }))
+    .filter(({ line }) => /^# [0-9]/.test(line));
+
+  if (invalidLines.length > 0) {
+    console.log(`\n${RED}✖ FAILED: ${name}${RESET}`);
+    console.log(`${RED}  Version headings must use 'v' prefix (e.g. '# v1.0.8'):${RESET}`);
+    invalidLines.forEach(({ line, num }) =>
+      console.log(`  ${RED}Line ${num}: ${line}${RESET}`)
+    );
+    console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
+    return false;
+  }
+
+  const firstEntry = entries[0];
+  const changelogVersion = firstEntry.replace(/^# v/, "").trim();
+  const pkgVersion = JSON.parse(readFileSync("package.json", "utf8")).version;
+
+  if (changelogVersion !== pkgVersion) {
+    console.log(`\n${RED}✖ FAILED: ${name}${RESET}`);
+    console.log(
+      `${RED}  Top CHANGELOG.md entry (v${changelogVersion}) does not match package.json version (${pkgVersion}).${RESET}`
+    );
+    console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
+    return false;
+  }
+
+  console.log(`\n${GREEN}✔ PASSED: ${name}${RESET}\n`);
+  console.log(`${CYAN}──────────────────────────────────────────────────${RESET}\n`);
+  return true;
+}
+
 // ── Runner ────────────────────────────────────────────────────────
 let passed = 0;
 let failed = 0;
@@ -67,6 +135,13 @@ const failures: string[] = [];
 console.log(`\n${BOLD}${CYAN}══════════════════════════════════════════════════${RESET}`);
 console.log(`${BOLD}${CYAN}══════════════════════════════════════════════════${RESET}\n`);
 console.log(`${BOLD}${CYAN}   Pre-Check — Icons Maintained${RESET}`);
+
+if (checkChangelog()) {
+  passed++;
+} else {
+  failed++;
+  failures.push("Changelog — format check");
+}
 
 for (const check of checks) {
   console.log(`${BOLD}${YELLOW}▶ ${check.name}${RESET}`);
