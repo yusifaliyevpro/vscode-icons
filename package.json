@@ -2,7 +2,7 @@
   "name": "vscicons",
   "displayName": "Icons – Maintained",
   "description": "Beautiful file and folder icons for Visual Studio Code",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
