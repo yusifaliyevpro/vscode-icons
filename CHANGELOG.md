@@ -1,3 +1,8 @@
+# 1.0.8
+
+- Added `tsmap.svg` icon
+- Added .cts, .mts, .cts.map, .mts.map, .cjs.map, mjs.map, .d.mts, .d.cts
+
 # 1.0.7
 
 - Changed icon of extension for better compability with Microsoft policies

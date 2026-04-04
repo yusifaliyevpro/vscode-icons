@@ -630,6 +630,7 @@ const icons: Icon = {
   ...icon("js"),
   ...icon("jsmap"),
   ...icon("typescript"),
+  ...icon("tsmap"),
   ...icon("typescriptdef"),
   ...icon("vue"),
   ...icon("image"),
