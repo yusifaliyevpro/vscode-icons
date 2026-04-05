@@ -127,6 +127,7 @@ export default {
   controllers: "_fd_folder_controller",
   conversation: "_fd_folder_messages",
   conversations: "_fd_folder_messages",
+  copilot: "_fd_folder_githubcopilot",
   core: "_fd_folder_core",
   coverage: "_fd_folder_coverage",
   credential: "_fd_folder_keys",
