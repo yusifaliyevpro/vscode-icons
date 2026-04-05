@@ -1,3 +1,9 @@
+# v1.1.2
+
+- Added file names `lighthouserc.cjs`, `.lighthouserc.cjs`, `.lighthouserc.mjs`, `lighthouserc.mjs`
+- Added file name `skills-lock.json`
+- Added file name `turbopack`,
+
 # v1.1.1
 
 - Added .ts.map extension
