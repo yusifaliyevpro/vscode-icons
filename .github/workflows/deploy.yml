@@ -31,11 +31,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install vsce
-        run: pnpm add -g @vscode/vsce
+      # - name: Install vsce
+      #   run: pnpm add -g @vscode/vsce
 
-      - name: Install ovsx
-        run: pnpm add -g ovsx
+      # - name: Install ovsx
+      #   run: pnpm add -g ovsx
 
       - name: Build extension
         run: pnpm build
@@ -63,14 +63,14 @@ jobs:
       - name: Deploy extension
         if: steps.check.outputs.version_changed == 'true'
         run: |
-          vsce package
-          vsce publish -p $VSCE_TOKEN
+          pnpx @vscode/vsce package
+          pnpx @vscode/vsce publish -p $VSCE_TOKEN
         env:
           VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
 
       - name: Publish to Open VSX
         if: steps.check.outputs.version_changed == 'true'
-        run: ovsx publish -p $OVSX_TOKEN
+        run: pnpx ovsx publish -p $OVSX_TOKEN
         env:
           OVSX_TOKEN: ${{ secrets.OVSX_TOKEN }}
 
