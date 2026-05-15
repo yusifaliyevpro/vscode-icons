@@ -8,6 +8,5 @@ package-lock.json
 icons.json
 *.lock
 pnpm-lock.yaml
-pnpm-workspace.yaml
 folder-icon-maker/output
 folder-icon-maker/*.svg
