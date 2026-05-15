@@ -1,3 +1,7 @@
+# v1.1.4
+
+- Fix vscode engine version issue
+
 # v1.1.3
 
 - Added new file extension `.excalidraw`
