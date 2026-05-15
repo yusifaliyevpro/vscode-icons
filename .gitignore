@@ -3,10 +3,7 @@ app
 out
 .vscode-test/**
 npm-debug.log
-package-lock.json
 *.vsix
 icons.json
 *.lock
-pnpm-lock.yaml
-folder-icon-maker/output
-folder-icon-maker/*.svg
+folder-icon-maker
