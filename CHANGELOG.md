@@ -1,3 +1,7 @@
+# v1.1.3
+
+- Added new file extension `.excalidraw`
+
 # v1.1.2
 
 - Added file names `lighthouserc.cjs`, `.lighthouserc.cjs`, `.lighthouserc.mjs`, `lighthouserc.mjs`
