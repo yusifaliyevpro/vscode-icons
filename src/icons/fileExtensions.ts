@@ -168,6 +168,7 @@ export default {
   erl: "_f_erlang",
   esx: "_f_js",
   ex: "_f_elixir",
+  excalidraw: "_f_excalidraw",
   exe: "_f_exe",
   exp: "_f_console",
   exrc: "_f_vim",
