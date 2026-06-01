@@ -781,6 +781,7 @@ const icons: Icon = {
   ...icon("document"),
   ...icon("pascal"),
   ...icon("nunjucks"),
+  ...icon("precommit"),
 };
 
 export default icons;
