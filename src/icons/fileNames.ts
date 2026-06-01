@@ -720,4 +720,6 @@ export default {
   ".yarnrc.yml": "_f_yarn",
   ".pre-commit-config.yaml": "_f_precommit",
   ".pre-commit-config.yml": "_f_precommit",
+  ".pre-commit-hooks.yaml": "_f_precommit",
+  ".pre-commit-hooks.yml": "_f_precommit",
 };
