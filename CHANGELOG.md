@@ -1,3 +1,7 @@
+# v1.1.6
+
+- Added the `precommit` icon and related extensions and file names by @JvictorMarques
+
 # v1.1.5
 
 - Added `eas.json` and `metro.config` files' icon
