@@ -645,4 +645,5 @@ export default {
   zip: "_f_zip",
   zipx: "_f_zip",
   zsh: "_f_console",
+  precommit: "_f_precommit",
 };
