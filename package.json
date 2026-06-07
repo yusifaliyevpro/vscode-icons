@@ -2,7 +2,7 @@
   "name": "vscicons",
   "displayName": "Icons – Maintained",
   "description": "Beautiful file and folder icons for Visual Studio Code",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "publisher": "yusifaliyevpro",
   "main": "./out/extension.js",
   "engines": {
@@ -14,12 +14,12 @@
   "scripts": {
     "build": "tsc && node ./out/extension.js",
     "package": "vsce package",
+    "check": "node --no-warnings scripts/pre-check.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "generate": "node --no-warnings folder-icon-maker/generate.ts",
     "sort-icons": "node --no-warnings scripts/sort-icons.ts",
-    "pre-check": "node --no-warnings scripts/pre-check.ts",
-    "install:local": "pnpm build && pnpm package && code --install-extension ./vscicons-$(node -p \"require('./package.json').version\").vsix"
+    "build:vsix": "pnpm build && pnpm package"
   },
   "categories": [
     "Themes",
@@ -64,13 +64,13 @@
   "devDependencies": {
     "@types/node": "24.12.4",
     "@types/vscode": "1.60.0",
-    "@typescript-eslint/eslint-plugin": "8.59.3",
-    "@typescript-eslint/parser": "8.59.3",
-    "@vscode/vsce": "3.9.1",
+    "@typescript-eslint/eslint-plugin": "8.60.1",
+    "@typescript-eslint/parser": "8.60.1",
+    "@vscode/vsce": "3.9.2",
     "eslint": "9.39.4",
     "nodemon": "3.1.14",
     "prettier": "3.8.3",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.59.3"
+    "typescript-eslint": "8.60.1"
   }
 }
