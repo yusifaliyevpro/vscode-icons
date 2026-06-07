@@ -14,7 +14,7 @@
 - [ ] SVG files added to `icons/`
 - [ ] Icon registered in `src/icons.ts`
 - [ ] Mappings added in the appropriate `src/icons/` file
-- [ ] `pnpm pre-check` passes
+- [ ] `pnpm check` passes
 - [ ] No changes to `version` in `package.json`
 
 ## Screenshots
