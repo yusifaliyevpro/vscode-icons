@@ -426,6 +426,8 @@ const icons: Icon = {
   ...icon("buildkite"),
   ...icon("cmake"),
   ...icon("excalidraw"),
+  ...icon("metro"),
+  ...icon("expo"),
   ...icon("adonis"),
   ...icon("applescript"),
   ...icon("ada"),

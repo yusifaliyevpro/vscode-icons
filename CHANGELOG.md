@@ -1,3 +1,10 @@
+# v1.1.5
+
+- Added `eas.json` and `metro.config` files' icon
+- Updated old firebase icon
+- Added `google-services.json` file (firebase) icon
+- Added `(auth)` folder name icon
+
 # v1.1.4
 
 - Fix vscode engine version issue
