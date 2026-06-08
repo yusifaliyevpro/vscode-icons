@@ -31,12 +31,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # - name: Install vsce
-      #   run: pnpm add -g @vscode/vsce
-
-      # - name: Install ovsx
-      #   run: pnpm add -g ovsx
-
       - name: Build extension
         run: pnpm build
 
@@ -90,7 +84,3 @@ jobs:
             --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Skip publish
-        if: steps.check.outputs.version_changed == 'false'
-        run: echo "Version ${{ steps.check.outputs.new_version }} is already published. Skipping."
