@@ -58,7 +58,7 @@ I can add more icons if you need, [open a **new** issue](https://github.com/yusi
 
 ## Changelog
 
-[See full changelog here](https://github.com/yusifaliyevpro/vscode-icons/blob/main/CHANGELOG.md)
+[See all releases here](https://github.com/yusifaliyevpro/vscode-icons/releases)
 
 ## Icon sources
 
