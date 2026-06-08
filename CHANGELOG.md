@@ -1,3 +1,7 @@
+# v1.1.7
+
+- Added NestJS file icon mappings by @solacer21
+
 # v1.1.6
 
 - Added the `precommit` icon and related extensions and file names by @JvictorMarques
