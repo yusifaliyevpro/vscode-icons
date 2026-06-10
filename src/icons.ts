@@ -428,6 +428,7 @@ const icons: Icon = {
   ...icon("excalidraw"),
   ...icon("metro"),
   ...icon("expo"),
+  ...icon("react_doctor"),
   ...icon("adonis"),
   ...icon("applescript"),
   ...icon("ada"),

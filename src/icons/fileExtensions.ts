@@ -417,6 +417,7 @@ export default {
   ppt: "_f_powerpoint",
   pptm: "_f_powerpoint",
   pptx: "_f_powerpoint",
+  precommit: "_f_precommit",
   prefs: "_f_settings",
   prg: "_f_foxpro",
   prisma: "_f_prisma",
@@ -661,5 +662,4 @@ export default {
   zip: "_f_zip",
   zipx: "_f_zip",
   zsh: "_f_console",
-  precommit: "_f_precommit",
 };
