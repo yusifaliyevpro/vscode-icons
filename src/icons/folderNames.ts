@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export default {
+  "(auth)": "_fd_folder_secure",
   addon: "_fd_folder_plugin",
   addons: "_fd_folder_plugin",
   admin: "_fd_folder_admin",
@@ -29,7 +30,6 @@ export default {
   audios: "_fd_folder_audio",
   aurelia_project: "_fd_folder_aurelia",
   auth: "_fd_folder_secure",
-  "(auth)": "_fd_folder_secure",
   authentication: "_fd_folder_secure",
   auto: "_fd_folder_generator",
   ".aws": "_fd_folder_aws",
