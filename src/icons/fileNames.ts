@@ -233,6 +233,7 @@ export default {
   ".dockerignore": "_f_docker",
   "doctor.config.js": "_f_react_doctor",
   "doctor.config.json": "_f_react_doctor",
+  "doctor.config.ts": "_f_react_doctor",
   ".drone.yml": "_f_drone",
   dune: "_f_dune",
   "dune-project": "_f_dune",
