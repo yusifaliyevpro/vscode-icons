@@ -364,6 +364,8 @@ const icons: Icon = {
   ...folderIcon("folder_other_open"),
   ...folderIcon("folder_rust"),
   ...folderIcon("folder_rust_open"),
+  ...folderIcon("folder_nestjs"),
+  ...folderIcon("folder_nestjs_open"),
   ...folderIcon("folder_next"),
   ...folderIcon("folder_next_open"),
   ...folderIcon("folder_cmake"),
