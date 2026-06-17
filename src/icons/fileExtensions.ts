@@ -158,6 +158,8 @@ export default {
   "drone.yml": "_f_drone",
   dsc: "_f_denizenscript",
   dtd: "_f_xml",
+  "dto.js": "_f_nestjs",
+  "dto.ts": "_f_nestjs",
   dtx: "_f_tex",
   "e2e-spec.cjs": "_f_testjs",
   "e2e-spec.js": "_f_testjs",
