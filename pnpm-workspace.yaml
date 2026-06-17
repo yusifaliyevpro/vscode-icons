@@ -1,3 +1,7 @@
 allowBuilds:
   "@vscode/vsce-sign": true
   keytar: true
+minimumReleaseAge: 1440
+trustPolicy: "no-downgrade"
+trustPolicyExclude:
+  - semver@5.7.2
