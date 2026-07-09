@@ -279,6 +279,7 @@ export default {
   "js.map": "_f_jsmap",
   jsconfig: "_f_jsconfig",
   json: "_f_json",
+  jsonc: "_f_json",
   json5: "_f_json",
   jsonl: "_f_json",
   jsp: "_f_java",
