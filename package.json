@@ -64,13 +64,13 @@
   "devDependencies": {
     "@types/node": "24.12.4",
     "@types/vscode": "1.60.0",
-    "@typescript-eslint/eslint-plugin": "8.61.1",
-    "@typescript-eslint/parser": "8.61.1",
+    "@typescript-eslint/eslint-plugin": "8.63.0",
+    "@typescript-eslint/parser": "8.63.0",
     "@vscode/vsce": "3.9.2",
     "eslint": "9.39.4",
     "nodemon": "3.1.14",
-    "prettier": "3.8.4",
+    "prettier": "3.9.4",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.61.1"
+    "typescript-eslint": "8.63.0"
   }
 }
