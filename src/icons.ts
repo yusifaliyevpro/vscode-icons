@@ -1,4 +1,4 @@
-import { Icon } from "./types/Icon";
+import type { Icon } from "./types/Icon";
 function icon(name: string): Icon {
   return {
     [`_f_${name}`]: {
@@ -712,6 +712,7 @@ const icons: Icon = {
   ...icon("tailwind"),
   ...icon("nodemon"),
   ...icon("jinja"),
+  ...icon("oxc"),
   ...icon("haml"),
   ...icon("smarty"),
   ...icon("haskell"),
@@ -780,6 +781,7 @@ const icons: Icon = {
   ...icon("sanity"),
   ...icon("lottie"),
   ...icon("tsdown"),
+  ...icon("plugin"),
   ...icon("claude"),
   ...icon("agentsmd"),
   ...icon("conduct"),

@@ -1,15 +1,26 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "target": "ES2020",
+    "target": "ES2022",
     "outDir": "out",
-    "lib": ["ES2020"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022"],
     "sourceMap": true,
     "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
-    "types": ["node", "vscode"]
+    "types": ["node", "vscode"],
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true
   },
-  "exclude": ["node_modules", ".vscode-test", "folder-icon-maker", "scripts"]
+  "exclude": [
+    "node_modules",
+    ".vscode-test",
+    "folder-icon-maker",
+    "scripts",
+    "oxfmt.config.ts",
+    "oxlint.config.ts",
+    "tsdown.config.ts"
+  ]
 }

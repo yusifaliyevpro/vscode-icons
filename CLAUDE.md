@@ -9,7 +9,7 @@ VS Code icon theme extension ("Icons") that provides custom file and folder icon
 ## Commands
 
 - **Build**: `pnpm build` — compiles TypeScript then runs `node ./out/extension.js` to generate `icons.json`
-- **Lint**: `pnpm lint` — runs ESLint with auto-fix across all `.ts` files
+- **Lint**: `pnpm lint` — runs Oxlint with auto-fix across all `.ts` files
 - **Package**: `pnpm package` — creates `.vsix` file via `vsce package`
 - **Build & install locally**: `pnpm build:local` — builds, packages, and installs the extension into VS Code
 
@@ -38,7 +38,6 @@ The build pipeline flows: **icon definitions → generator → extension.ts → 
 - **Icon ID prefixes**: `_f_` for file icons, `_fd_` for folder icons, `_open` suffix for expanded folder variants.
 - **`make()` helper** (`src/helper.ts`): Maps an array of strings to a single icon ID. Used for batch assignments (e.g., all audio extensions → `_f_audio`).
 - **`src/defaults/`**: Predefined arrays of related extensions — `media.ts` (audio/video/image/font extensions) and `bundler.ts` (webpack config filename variants).
-- **Naming convention disabled**: Icon mapping files use `/* eslint-disable @typescript-eslint/naming-convention */` since property names are arbitrary file/folder names.
 
 ## Adding a New Icon
 

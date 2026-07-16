@@ -93,17 +93,17 @@ Folder icons require two SVG variants: a closed folder and an open folder. You c
 
 ## Files Overview
 
-| File                               | Purpose                                       |
-| ---------------------------------- | --------------------------------------------- |
-| `icons/`                           | Active SVG icon assets                        |
+| File                               | Purpose                                                                  |
+| ---------------------------------- | ------------------------------------------------------------------------ |
+| `icons/`                           | Active SVG icon assets                                                   |
 | `icons-unused/`                    | Designed but unmapped icons — check here first before creating a new SVG |
-| `src/icons.ts`                     | Icon registry — maps icon IDs to SVG paths    |
-| `src/icons/fileExtensions.ts`      | File extension → icon ID mappings             |
-| `src/icons/fileNames.ts`           | Exact filename → icon ID mappings             |
-| `src/icons/folderNames.ts`         | Folder name → closed folder icon ID           |
-| `src/icons/folderNamesExpanded.ts` | Folder name → expanded folder icon ID         |
-| `src/helper.ts`                    | `make()` helper for batch mappings            |
-| `folder-icon-maker/`               | Tool to generate folder icon SVGs from a logo |
+| `src/icons.ts`                     | Icon registry — maps icon IDs to SVG paths                               |
+| `src/icons/fileExtensions.ts`      | File extension → icon ID mappings                                        |
+| `src/icons/fileNames.ts`           | Exact filename → icon ID mappings                                        |
+| `src/icons/folderNames.ts`         | Folder name → closed folder icon ID                                      |
+| `src/icons/folderNamesExpanded.ts` | Folder name → expanded folder icon ID                                    |
+| `src/helper.ts`                    | `make()` helper for batch mappings                                       |
+| `folder-icon-maker/`               | Tool to generate folder icon SVGs from a logo                            |
 
 ## Local Testing
 
@@ -134,9 +134,9 @@ pnpm pre-check
 This runs the same checks as CI:
 
 1. **Icon files** — verifies every SVG referenced in `src/icons.ts` exists in `icons/`
-2. **Prettier** — checks formatting (offers to auto-fix if it fails)
-3. **TypeScript** — type checking
-4. **ESLint** — linting
+2. **Oxfmt** — checks formatting (offers to auto-fix if it fails)
+3. **Oxlint** — linting
+4. **TypeScript** — type checking
 5. **Build** — generates `icons.json`
 
 ## Important Notes

@@ -3,6 +3,7 @@
 .vscode-test/**
 test/**
 src/**
+out/**
 scripts/**
 **/*.map
 .gitignore
@@ -10,6 +11,9 @@ scripts/**
 appveyor.yml
 tsconfig.json
 tslint.json
+tsdown.config.ts
+oxfmt.config.ts
+oxlint.config.ts
 images/**
 vsc-extension-quickstart.md
 logo.svg

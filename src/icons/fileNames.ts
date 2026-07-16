@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { make } from "../helper";
 import { webpack } from "../defaults/bundler";
+import { make } from "../helper";
 
 export default {
   ...make(webpack, "_f_webpack"),
@@ -287,6 +286,7 @@ export default {
   ".esmrc": "_f_nodejs",
   "execution_environment.yaml": "_f_ansible",
   "execution_environment.yml": "_f_ansible",
+  "extensions.json": "_f_plugin",
   fastfile: "_f_fastlane",
   "firebase.json": "_f_firebase",
   ".firebaserc": "_f_firebase",
@@ -490,6 +490,18 @@ export default {
   ".nxignore": "_f_nrwl",
   ".nycrc": "_f_istanbul",
   ".nycrc.json": "_f_istanbul",
+  "oxfmt.config.js": "_f_oxc",
+  "oxfmt.config.mjs": "_f_oxc",
+  "oxfmt.config.mts": "_f_oxc",
+  "oxfmt.config.ts": "_f_oxc",
+  ".oxfmtrc.json": "_f_oxc",
+  ".oxfmtrc.jsonc": "_f_oxc",
+  "oxlint.config.js": "_f_oxc",
+  "oxlint.config.mjs": "_f_oxc",
+  "oxlint.config.mts": "_f_oxc",
+  "oxlint.config.ts": "_f_oxc",
+  ".oxlintrc.json": "_f_oxc",
+  ".oxlintrc.jsonc": "_f_oxc",
   "package-lock.json": "_f_nodejs",
   "package.json": "_f_nodejs",
   ".percy.yml": "_f_percy",

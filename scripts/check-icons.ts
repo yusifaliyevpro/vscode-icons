@@ -4,8 +4,8 @@
 // 2. Every SVG in icons/ is declared in src/icons.ts
 // 3. Every icon ID used in mapping files is defined in src/icons.ts
 // 4. Every icon ID defined in src/icons.ts is used in at least one mapping file or generator.ts
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
 
 const rootDir = path.resolve(import.meta.dirname, "..");
 const iconsTs = fs.readFileSync(path.join(rootDir, "src", "icons.ts"), "utf8");
@@ -129,7 +129,7 @@ if (undefinedRefs.length > 0) {
 if (unusedIds.length > 0) {
   console.error(`Found ${unusedIds.length} icon ID(s) declared in src/icons.ts but never used in any mapping file:`);
   unusedIds.forEach((id) => {
-    const { line, svgName, declaration } = iconInfoMap.get(id)!;
+    const { svgName, declaration } = iconInfoMap.get(id)!;
     console.error(`  • ${declaration.padEnd(30)}  icons/${svgName}`);
   });
   failed = true;

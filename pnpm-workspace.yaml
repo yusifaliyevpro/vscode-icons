@@ -1,3 +1,4 @@
+saveExact: true
 allowBuilds:
   "@vscode/vsce-sign": true
   keytar: true
