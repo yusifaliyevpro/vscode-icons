@@ -3,9 +3,9 @@
 // Run this before opening a PR:
 //   pnpm pre-check
 //
-// Checks: Icon files exist · TypeScript · ESLint · Prettier · Build
-import { execSync } from "child_process";
-import * as readline from "readline";
+// Checks: Icon files exist · TypeScript · Oxlint · Oxfmt · Build
+import { execSync } from "node:child_process";
+import * as readline from "node:readline";
 interface Check {
   name: string;
   cmd: string;
@@ -37,21 +37,21 @@ function ask(question: string): Promise<boolean> {
 // ── Checks (same order as CI) ─────────────────────────────────────
 const checks: Check[] = [
   {
-    name: "Icons — verify icon integrity",
-    cmd: "node --no-warnings scripts/check-icons.ts",
-  },
-  {
-    name: "Prettier — format check",
-    cmd: 'pnpm prettier --check "src/**/*.ts"',
-    onFail: 'pnpm prettier --write "src/**/*.ts"',
-  },
-  {
     name: "TypeScript — type check",
     cmd: "pnpm tsc --noEmit --incremental false",
   },
   {
-    name: "ESLint — lint",
+    name: "Oxfmt — format check",
+    cmd: "pnpm fmt:check",
+    onFail: 'pnpm fmt"',
+  },
+  {
+    name: "Oxlint — lint",
     cmd: "pnpm lint",
+  },
+  {
+    name: "Icons — verify icon integrity",
+    cmd: "node --no-warnings scripts/check-icons.ts",
   },
   {
     name: "Build — generate icons.json",

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { audio, image, video } from "../defaults/media";
 import { make } from "../helper";
 

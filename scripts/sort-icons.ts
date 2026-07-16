@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Sorts all object keys alphabetically in the 4 icon mapping files.
-// Parses each file directly — single pass, O(n log n). No ESLint needed.
-import * as fs from "fs";
-import * as path from "path";
+// Parses each file directly — single pass, O(n log n). No Oxfmt needed.
+import * as fs from "node:fs";
+import * as path from "node:path";
 
 const rootDir = path.resolve(import.meta.dirname, "..");
 
@@ -24,9 +24,9 @@ function sortFile(filePath: string): void {
   const lines = content.split("\n");
 
   // Find the opening brace of `export default {`
-  const openIdx = lines.findIndex((l) => /^export default \{/.test(l));
+  const openIdx = lines.findIndex((l) => l.startsWith("export default {"));
   // Find the closing `};`
-  const closeIdx = lines.findLastIndex((l) => /^\}/.test(l));
+  const closeIdx = lines.findLastIndex((l) => l.startsWith("}"));
 
   if (openIdx === -1 || closeIdx === -1) {
     return;

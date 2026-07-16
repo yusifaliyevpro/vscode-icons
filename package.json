@@ -1,30 +1,57 @@
 {
   "name": "vscicons",
   "displayName": "Icons – Maintained",
+  "version": "1.2.0",
   "description": "Beautiful file and folder icons for Visual Studio Code",
-  "version": "1.1.16",
-  "publisher": "yusifaliyevpro",
-  "main": "./out/extension.js",
-  "engines": {
-    "vscode": "^1.60.0"
-  },
-  "activationEvents": [
-    "onIdentity:identity"
+  "categories": [
+    "Other",
+    "Themes"
   ],
+  "keywords": [
+    "file-icons",
+    "folder-icons",
+    "icon-theme",
+    "icons",
+    "material-icons",
+    "theme",
+    "vscode-icons"
+  ],
+  "homepage": "https://github.com/yusifaliyevpro/vscode-icons#readme",
+  "bugs": {
+    "url": "https://github.com/yusifaliyevpro/vscode-icons/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Yusif Aliyev",
+    "email": "yusifaliyevpro@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yusifaliyevpro/vscode-icons"
+  },
+  "publisher": "yusifaliyevpro",
+  "type": "module",
   "scripts": {
-    "build": "tsc && node ./out/extension.js",
+    "build": "tsdown && node ./out/extension.js",
     "package": "vsce package",
     "check": "node --no-warnings scripts/pre-check.ts",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "generate": "node --no-warnings folder-icon-maker/generate.ts",
     "sort-icons": "node --no-warnings scripts/sort-icons.ts",
     "build:vsix": "pnpm build && pnpm package"
   },
-  "categories": [
-    "Themes",
-    "Other"
-  ],
+  "devDependencies": {
+    "@types/node": "24.12.4",
+    "@types/vscode": "1.60.0",
+    "@vscode/vsce": "3.9.2",
+    "oxfmt": "0.59.0",
+    "oxlint": "1.74.0",
+    "tsdown": "0.22.8",
+    "typescript": "7.0.2"
+  },
   "contributes": {
     "iconThemes": [
       {
@@ -39,38 +66,7 @@
     "color": "#45403d",
     "theme": "dark"
   },
-  "keywords": [
-    "icons",
-    "theme",
-    "icon-theme",
-    "file-icons",
-    "folder-icons",
-    "vscode-icons",
-    "material-icons"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yusifaliyevpro/vscode-icons"
-  },
-  "author": {
-    "email": "yusifaliyevpro@gmail.com",
-    "name": "Yusif Aliyev"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yusifaliyevpro/vscode-icons/issues"
-  },
-  "homepage": "https://github.com/yusifaliyevpro/vscode-icons#readme",
-  "devDependencies": {
-    "@types/node": "24.12.4",
-    "@types/vscode": "1.60.0",
-    "@typescript-eslint/eslint-plugin": "8.63.0",
-    "@typescript-eslint/parser": "8.63.0",
-    "@vscode/vsce": "3.9.2",
-    "eslint": "9.39.4",
-    "nodemon": "3.1.14",
-    "prettier": "3.9.4",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.63.0"
+  "engines": {
+    "vscode": "^1.60.0"
   }
 }
