@@ -1,4 +1,4 @@
-name: Deploy VSCode Extension
+name: Deploy Extension
 
 on:
   push:
