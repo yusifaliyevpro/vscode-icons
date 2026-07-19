@@ -41,7 +41,8 @@
     "fmt:check": "oxfmt --check",
     "generate": "node --no-warnings folder-icon-maker/generate.ts",
     "sort-icons": "node --no-warnings scripts/sort-icons.ts",
-    "build:vsix": "pnpm build && pnpm package"
+    "build:vsix": "pnpm build && pnpm package",
+    "release": "git pull && pnpm version patch --no-git-tag-version && node --no-warnings scripts/release.ts"
   },
   "devDependencies": {
     "@types/node": "24.12.4",
