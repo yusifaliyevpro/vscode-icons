@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   deploy:
@@ -44,7 +45,9 @@ jobs:
 
           LATEST_VERSION=${LATEST_TAG#v}
 
-          if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ]; 
+          echo "previous_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+
+          if [ "$LATEST_VERSION" != "$CURRENT_VERSION" ];
           then
             echo "Version changed"
             echo "version_changed=true" >> $GITHUB_OUTPUT
@@ -84,3 +87,41 @@ jobs:
             --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on released PRs
+        if: steps.check.outputs.version_changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.check.outputs.new_version }}
+          PREVIOUS_TAG: ${{ steps.check.outputs.previous_tag }}
+        run: |
+          # PR numbers referenced in squash-merge commit subjects since the last release
+          if git rev-parse "$PREVIOUS_TAG" >/dev/null 2>&1; then
+            RANGE="${PREVIOUS_TAG}..HEAD"
+          else
+            RANGE="HEAD"
+          fi
+
+          PRS=$(git log "$RANGE" --pretty=%s | grep -oE '\(#[0-9]+\)' | grep -oE '[0-9]+' | sort -un)
+          echo "PRs in this release: ${PRS:-none}"
+
+          for PR in $PRS; do
+            # Skip anything that isn't a merged PR (e.g. an issue number reference)
+            STATE=$(gh pr view "$PR" --json state --jq '.state' 2>/dev/null || echo "")
+            if [ "$STATE" != "MERGED" ]; then
+              echo "Skipping #$PR (state: ${STATE:-not a PR})"
+              continue
+            fi
+
+            AUTHOR=$(gh pr view "$PR" --json author --jq '.author.login')
+            echo "Commenting on #$PR (@$AUTHOR)"
+
+            gh pr comment "$PR" --body "$(cat <<EOF
+          @${AUTHOR} Thanks for the PR! Released in [**v${VERSION}**](https://github.com/yusifaliyevpro/vscode-icons/releases/tag/v${VERSION})! 🎉
+
+          It's available on Open VSX right now. VS Code Marketplace verification can take about 10 minutes, and the VS Code app may take up to 2 hours to auto-update.
+
+          After the verification, to get it immediately, open the Extensions view, search for "Icons - Maintained", and update manually.
+          EOF
+          )"
+          done
