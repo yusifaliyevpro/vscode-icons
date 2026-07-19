@@ -121,7 +121,7 @@ jobs:
 
           It's available on Open VSX right now. VS Code Marketplace verification can take about 10 minutes, and the VS Code app may take up to 2 hours to auto-update.
 
-          After the verification, to get it immediately, open the Extensions view, search for "Icons - Maintained", and update manually.
+          If you don't want to wait 2 hours, open the Extensions view, search for "Icons - Maintained", check the update and update manually.
           EOF
           )"
           done
