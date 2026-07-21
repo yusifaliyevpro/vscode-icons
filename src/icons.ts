@@ -675,6 +675,7 @@ const icons: Icon = {
   ...icon("react"),
   ...icon("reactts"),
   ...icon("rollup"),
+  ...icon("rolldown"),
   ...icon("gulp"),
   ...icon("grunt"),
   ...icon("editorconfig"),
