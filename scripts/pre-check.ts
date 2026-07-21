@@ -43,7 +43,7 @@ const checks: Check[] = [
   {
     name: "Oxfmt — format check",
     cmd: "pnpm fmt:check",
-    onFail: 'pnpm fmt"',
+    onFail: "pnpm fmt",
   },
   {
     name: "Oxlint — lint",
