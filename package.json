@@ -1,7 +1,7 @@
 {
   "name": "vscicons",
   "displayName": "Icons – Maintained",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Beautiful file and folder icons for Visual Studio Code",
   "categories": [
     "Other",
@@ -28,6 +28,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yusifaliyevpro/vscode-icons"
+  },
+  "funding": [
+    {
+      "type": "Kofe.al",
+      "url": "https://kofe.al/@yusifaliyevpro"
+    }
+  ],
+  "sponsor": {
+    "url": "https://kofe.al/@yusifaliyevpro"
   },
   "publisher": "yusifaliyevpro",
   "type": "module",
