@@ -655,6 +655,7 @@ const icons: Icon = {
   ...icon("xml"),
   ...icon("robots"),
   ...icon("bundler"),
+  ...icon("cargo"),
   ...icon("stylelint"),
   ...icon("prettier"),
   ...icon("python"),
