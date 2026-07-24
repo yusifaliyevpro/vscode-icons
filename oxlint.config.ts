@@ -6,6 +6,10 @@ export default defineConfig({
     correctness: "error",
     suspicious: "warn",
   },
+  options: {
+    typeAware: true,
+    typeCheck: true,
+  },
   ignorePatterns: ["out"],
   rules: {
     curly: "warn",

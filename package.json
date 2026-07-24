@@ -57,9 +57,10 @@
     "@types/node": "24.12.4",
     "@types/vscode": "1.60.0",
     "@vscode/vsce": "3.9.2",
-    "oxfmt": "0.59.0",
-    "oxlint": "1.74.0",
-    "tsdown": "0.22.8",
+    "oxfmt": "0.60.0",
+    "oxlint": "1.75.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "tsdown": "0.22.13",
     "typescript": "7.0.2"
   },
   "contributes": {
