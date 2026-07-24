@@ -84,8 +84,8 @@ for (const check of checks) {
     console.log(`\n${GREEN}✔ PASSED: ${check.name}${RESET}\n`);
     passed++;
   } catch (err: unknown) {
-    if (err && typeof err === "object" && "stderr" in err) {
-      errorOutput = String((err as { stderr: string }).stderr ?? "");
+    if (err && typeof err === "object" && "stderr" in err && typeof err.stderr === "string") {
+      errorOutput = err.stderr;
     }
     if (errorOutput) {
       process.stderr.write(errorOutput);

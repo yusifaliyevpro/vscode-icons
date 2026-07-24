@@ -84,6 +84,8 @@ export default {
   "cabal.project.local": "_f_cabal",
   "capacitor.config.json": "_f_capacitor",
   "capacitor.config.ts": "_f_capacitor",
+  "Cargo.lock": "_f_cargo",
+  "Cargo.toml": "_f_cargo",
   "cdp.pid": "_f_json",
   ".cfignore": "_f_cloudfoundry",
   changelog: "_f_changelog",
