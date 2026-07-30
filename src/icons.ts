@@ -663,6 +663,7 @@ const icons: Icon = {
   ...icon("audio"),
   ...icon("lua"),
   ...icon("csharp"),
+  ...icon("greenly"),
   ...icon("dart"),
   ...icon("eslint"),
   ...icon("handlebars"),
