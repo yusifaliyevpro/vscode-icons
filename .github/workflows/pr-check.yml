@@ -25,22 +25,10 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Verify icon integrity
-        run: node --no-warnings scripts/check-icons.ts
-
-      - name: TypeScript check
-        run: pnpm tsc --noEmit
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Oxfmt check
-        run: pnpm fmt:check
-
-      - name: Build
-        run: pnpm build
+      - name: Run checks
+        run: pnpm check
 
   version-check:
     runs-on: ubuntu-latest

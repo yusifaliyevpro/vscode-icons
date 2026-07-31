@@ -19,6 +19,7 @@
     ".vscode-test",
     "folder-icon-maker",
     "scripts",
+    "greenly.config.ts",
     "oxfmt.config.ts",
     "oxlint.config.ts",
     "tsdown.config.ts"
