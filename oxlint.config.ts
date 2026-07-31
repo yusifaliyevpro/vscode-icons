@@ -12,7 +12,6 @@ export default defineConfig({
   },
   ignorePatterns: ["out"],
   rules: {
-    curly: "warn",
     eqeqeq: "error",
     "no-throw-literal": "warn",
     "unicorn/prefer-node-protocol": "error",

@@ -1,7 +1,7 @@
 {
   "name": "vscicons",
   "displayName": "Icons – Maintained",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Beautiful file and folder icons for Visual Studio Code",
   "categories": [
     "Other",
@@ -42,21 +42,20 @@
   "type": "module",
   "scripts": {
     "build": "tsdown && node ./out/extension.js",
-    "package": "vsce package",
-    "check": "node --no-warnings scripts/pre-check.ts",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
+    "vsix": "pnpm build && vsce package",
+    "check": "greenly",
+    "release": "git pull && pnpm version patch --no-git-tag-version && node --no-warnings scripts/release.ts",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
-    "generate": "node --no-warnings folder-icon-maker/generate.ts",
-    "sort-icons": "node --no-warnings scripts/sort-icons.ts",
-    "build:vsix": "pnpm build && pnpm package",
-    "release": "git pull && pnpm version patch --no-git-tag-version && node --no-warnings scripts/release.ts"
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "generate": "node --no-warnings folder-icon-maker/generate.ts"
   },
   "devDependencies": {
     "@types/node": "24.12.4",
     "@types/vscode": "1.60.0",
     "@vscode/vsce": "3.9.2",
+    "greenly": "1.1.0",
     "oxfmt": "0.60.0",
     "oxlint": "1.75.0",
     "oxlint-tsgolint": "^7.0.2001",

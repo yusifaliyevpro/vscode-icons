@@ -111,33 +111,37 @@ To test your changes locally in VS Code:
 
 1. **Uninstall the production extension** first — if you have **Icons - Maintained** installed from the marketplace, uninstall it to avoid conflicts.
 
-2. **Build and install locally:**
+2. **Build and package a `.vsix`:**
 
    ```bash
-   pnpm install:local
+   pnpm vsix
    ```
 
-   This builds the project, packages it as a `.vsix` file, and installs it into VS Code.
+   This builds the project and packages it as a `.vsix` file. Install it into VS Code with
+   `code --install-extension vscicons-<version>.vsix`, or via the Command Palette
+   (`Extensions: Install from VSIX...`).
 
 3. **Set the icon theme** — Open the Command Palette (`Ctrl+Shift+P`), search for `File Icon Theme`, and select **Icons**.
 
 4. Verify your new icons appear correctly in the file explorer.
 
-## Pre-Check
+## Check
 
-Before submitting your PR, run the pre-check script to catch issues early:
+Before submitting your PR, run the checks to catch issues early:
 
 ```bash
-pnpm pre-check
+pnpm check
 ```
 
-This runs the same checks as CI:
+This runs the same checks as CI, in order:
 
-1. **Icon files** — verifies every SVG referenced in `src/icons.ts` exists in `icons/`
+1. **TypeScript** — type checking
 2. **Oxfmt** — checks formatting (offers to auto-fix if it fails)
 3. **Oxlint** — linting
-4. **TypeScript** — type checking
-5. **Build** — generates `icons.json`
+4. **Sorted icons** — verifies `src/icons.ts` (grouped by factory, then by name) and the four mapping files are sorted (offers to sort if not)
+5. **Icon integrity** — verifies every SVG referenced in `src/icons.ts` exists in `icons/` (and vice versa)
+6. **Version check** — ensures `package.json` is not behind the published npm version (relevant to the maintainer)
+7. **Build** — generates `icons.json`
 
 ## Important Notes
 

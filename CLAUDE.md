@@ -8,18 +8,19 @@ VS Code icon theme extension ("Icons") that provides custom file and folder icon
 
 ## Commands
 
+- **Check**: `pnpm check` — runs greenly (typecheck, format, lint, sorted icons, icon integrity, version check, build). Run this before opening a PR.
 - **Build**: `pnpm build` — compiles TypeScript then runs `node ./out/extension.js` to generate `icons.json`
-- **Lint**: `pnpm lint` — runs Oxlint with auto-fix across all `.ts` files
-- **Package**: `pnpm package` — creates `.vsix` file via `vsce package`
-- **Build & install locally**: `pnpm build:local` — builds, packages, and installs the extension into VS Code
+- **Format**: `pnpm fmt` (write) / `pnpm fmt:check` (check only) — Oxfmt
+- **Lint**: `pnpm lint` (check) / `pnpm lint:fix` (auto-fix) — Oxlint
+- **Package**: `pnpm vsix` — creates `.vsix` file via `vsce package`
 
-There are no tests.
+There are no unit tests; `pnpm check` is the full validation (config in `greenly.config.ts`).
 
 ## Architecture
 
 The build pipeline flows: **icon definitions → generator → extension.ts → icons.json**
 
-1. **`src/icons.ts`** — Central icon registry. Uses `icon(name)` and `folderIcon(name)` factory functions to create icon definitions that map an ID to an SVG path (e.g., `_f_react` → `./icons/react.svg`).
+1. **`src/icons.ts`** — Central icon registry. Uses `icon(name)`, `folderIcon(name)`, and `iconGeneric(name)` factory functions to map an ID to an SVG path: `icon` produces `_f_<name>` (file icons), `folderIcon` produces `_fd_<name>` (+ `_fd_<name>_open`), and `iconGeneric` produces a bare `_<name>` (the built-in file/folder defaults). Entries are grouped `iconGeneric` → `folderIcon` → `icon` and sorted by name, enforced by the "Sorted icons" check (`scripts/sort-icons.ts`).
 
 2. **`src/icons/`** — Four mapping files that associate file patterns with icon IDs:
    - `fileExtensions.ts` — file extension → icon (e.g., `"js": "_f_js"`)
@@ -44,4 +45,4 @@ The build pipeline flows: **icon definitions → generator → extension.ts → 
 1. Add the SVG file to `icons/` (e.g., `myicon.svg`)
 2. Add an icon definition in `src/icons.ts` using `icon("myicon")` or `folderIcon("myicon")`
 3. Add the mapping in the appropriate `src/icons/` file (fileExtensions, fileNames, folderNames, or folderNamesExpanded)
-4. Run `pnpm build` to regenerate `icons.json`
+4. Run `pnpm check` to typecheck, verify icon integrity, sort the registry/mappings, and rebuild `icons.json`
