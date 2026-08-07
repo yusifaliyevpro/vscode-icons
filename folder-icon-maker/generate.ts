@@ -78,7 +78,7 @@ function buildTransform(viewBox: ViewBox, target: Target): string {
 }
 
 function generateFolderSvg(folderPath: string, logoContent: string, transform: string): string {
-  return `<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4142" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">${folderPath}<g transform="${transform}">${logoContent}</g></svg>\n`;
+  return `<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4142" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">${folderPath}<g transform="${transform}">${logoContent}</g></svg>\n`;
 }
 
 // --- Main ---

@@ -36,6 +36,7 @@ export default {
   ".azure-pipelines-ci": "_fd_folder_azure_pipelines_open",
   "back-up": "_fd_folder_archive_open",
   "back-ups": "_fd_folder_archive_open",
+  argocd: "_fd_folder_argocd_open",
   backend: "_fd_folder_server_open",
   backup: "_fd_folder_archive_open",
   backups: "_fd_folder_archive_open",
