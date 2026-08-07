@@ -390,6 +390,8 @@ const icons: Icon = {
   ...folderIcon("folder_webpack_open"),
   ...folderIcon("folder_wordpress"),
   ...folderIcon("folder_wordpress_open"),
+  ...folderIcon("folder_argocd"),
+  ...folderIcon("folder_argocd_open"),
   ...icon("3d"),
   ...icon("abc"),
   ...icon("actionscript"),
