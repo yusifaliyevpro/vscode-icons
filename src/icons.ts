@@ -765,6 +765,7 @@ const icons: Icon = {
   ...icon("twine"),
   ...icon("typescript"),
   ...icon("typescriptdef"),
+  ...icon("ubiquiti"),
   ...icon("uml"),
   ...icon("url"),
   ...icon("vagrant"),

@@ -601,6 +601,7 @@ export default {
   twee: "_f_twine",
   twig: "_f_twig",
   txt: "_f_document",
+  unifi: "_f_ubiquiti",
   unity: "_f_shaderlab",
   url: "_f_url",
   use: "_f_sml",
