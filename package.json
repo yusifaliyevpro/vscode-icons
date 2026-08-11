@@ -56,8 +56,8 @@
     "@types/vscode": "1.60.0",
     "@vscode/vsce": "3.9.2",
     "greenly": "1.1.5",
-    "oxfmt": "0.62.0",
-    "oxlint": "1.77.0",
+    "oxfmt": "0.63.0",
+    "oxlint": "1.78.0",
     "oxlint-tsgolint": "^7.0.2001",
     "tsdown": "0.22.14",
     "typescript": "7.0.2"
