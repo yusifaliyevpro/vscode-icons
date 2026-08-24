@@ -1,10 +1,8 @@
 saveExact: true
-allowBuilds:
-  "@vscode/vsce-sign": true
-  keytar: true
 minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - greenly@1.1.0
 trustPolicy: "no-downgrade"
 trustPolicyExclude:
   - semver@5.7.2
+allowBuilds:
+  "@vscode/vsce-sign": true
+  keytar: true
