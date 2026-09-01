@@ -1,5 +1,7 @@
 saveExact: true
+engineStrict: true
 minimumReleaseAge: 1440
+minimumReleaseAgeExcludePrune: true
 trustPolicy: "no-downgrade"
 trustPolicyExclude:
   - semver@5.7.2
