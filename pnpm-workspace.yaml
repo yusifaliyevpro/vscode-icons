@@ -3,6 +3,7 @@ engineStrict: true
 minimumReleaseAge: 1440
 minimumReleaseAgeExcludePrune: true
 trustPolicy: "no-downgrade"
+trustPolicyExcludePrune: true
 trustPolicyExclude:
   - semver@5.7.2
 allowBuilds:
