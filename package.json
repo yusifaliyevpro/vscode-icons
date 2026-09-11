@@ -52,7 +52,7 @@
     "generate": "node --no-warnings folder-icon-maker/generate.ts"
   },
   "devDependencies": {
-    "@types/node": "24.13.3",
+    "@types/node": "24.13.4",
     "@types/vscode": "1.60.0",
     "@vscode/vsce": "3.9.2",
     "greenly": "1.1.6",
