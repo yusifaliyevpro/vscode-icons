@@ -1,7 +1,7 @@
 {
   "name": "vscicons",
   "displayName": "Icons – Maintained",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "Beautiful file and folder icons for Visual Studio Code",
   "categories": [
     "Other",
@@ -52,13 +52,13 @@
     "generate": "node --no-warnings folder-icon-maker/generate.ts"
   },
   "devDependencies": {
-    "@types/node": "24.13.4",
+    "@types/node": "24.13.6",
     "@types/vscode": "1.60.0",
-    "@vscode/vsce": "3.9.2",
+    "@vscode/vsce": "4.0.0",
     "greenly": "1.1.6",
-    "oxfmt": "0.67.0",
-    "oxlint": "1.82.0",
-    "oxlint-tsgolint": "^7.0.2001",
+    "oxfmt": "0.70.0",
+    "oxlint": "1.85.0",
+    "oxlint-tsgolint": "^7.0.2002",
     "tsdown": "0.23.0",
     "typescript": "7.0.2"
   },
