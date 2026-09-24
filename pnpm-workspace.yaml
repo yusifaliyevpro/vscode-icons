@@ -5,5 +5,5 @@ minimumReleaseAgeExcludePrune: true
 trustPolicy: "no-downgrade"
 trustPolicyExcludePrune: true
 allowBuilds:
-  "@vscode/vsce-sign": true
+  '@vscode/vsce-sign': true
   keytar: true
