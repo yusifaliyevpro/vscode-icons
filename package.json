@@ -57,8 +57,8 @@
     "@vscode/vsce": "4.0.0",
     "greenly": "1.2.0",
     "ovsx": "1.2.0",
-    "oxfmt": "0.71.0",
-    "oxlint": "1.86.0",
+    "oxfmt": "0.72.0",
+    "oxlint": "1.87.0",
     "oxlint-tsgolint": "7.0.2003",
     "tsdown": "0.23.0",
     "typescript": "7.0.2"
