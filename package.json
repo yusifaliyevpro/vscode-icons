@@ -52,15 +52,15 @@
     "generate": "node --no-warnings folder-icon-maker/generate.ts"
   },
   "devDependencies": {
-    "@types/node": "24.19.1",
+    "@types/node": "24.19.2",
     "@types/vscode": "1.60.0",
     "@vscode/vsce": "4.0.0",
     "greenly": "1.2.0",
-    "ovsx": "1.2.0",
-    "oxfmt": "0.72.0",
-    "oxlint": "1.87.0",
-    "oxlint-tsgolint": "7.0.2003",
-    "tsdown": "0.23.0",
+    "ovsx": "1.3.0",
+    "oxfmt": "0.73.0",
+    "oxlint": "1.88.0",
+    "oxlint-tsgolint": "7.0.2004",
+    "tsdown": "0.23.1",
     "typescript": "7.0.2"
   },
   "contributes": {
