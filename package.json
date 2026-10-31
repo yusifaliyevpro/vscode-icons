@@ -54,13 +54,13 @@
   "devDependencies": {
     "@types/node": "24.19.2",
     "@types/vscode": "1.60.0",
-    "@vscode/vsce": "4.0.0",
+    "@vscode/vsce": "4.1.0",
     "greenly": "1.2.0",
     "ovsx": "1.3.0",
-    "oxfmt": "0.73.0",
-    "oxlint": "1.88.0",
-    "oxlint-tsgolint": "7.0.2004",
-    "tsdown": "0.23.1",
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0",
+    "oxlint-tsgolint": "7.0.2005",
+    "tsdown": "0.23.4",
     "typescript": "7.0.2"
   },
   "contributes": {
