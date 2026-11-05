@@ -503,6 +503,7 @@ const icons: Icon = {
   ...icon("document"),
   ...icon("dotjs"),
   ...icon("drawio"),
+  ...icon("drizzle"),
   ...icon("drone"),
   ...icon("dune"),
   ...icon("edge"),

@@ -23,7 +23,7 @@ yarn.lock
 pnpm-lock.yaml
 pnpm-workspace.yaml
 webpack.config.js
-CLAUDE.md
+AGENTS.md
 folder-icon-maker/**
 icons-unused/**
 scripts/**
