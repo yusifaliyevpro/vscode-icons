@@ -1,4 +1,4 @@
-name: Deploy Extension
+name: Release
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
   pull-requests: write
 
 jobs:
@@ -58,19 +59,15 @@ jobs:
             echo "version_changed=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Deploy extension
-        if: steps.check.outputs.version_changed == 'true'
-        run: |
-          pnpm vsce package
-          pnpm vsce publish -p $VSCE_TOKEN
-        env:
-          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
+      # --skip-duplicate lets a re-run retry whichever registry failed.
+      - parallel:
+          - name: Publish to VS Code Marketplace
+            if: steps.check.outputs.version_changed == 'true'
+            run: pnpm vsce publish --oidc --skip-duplicate
 
-      - name: Publish to Open VSX
-        if: steps.check.outputs.version_changed == 'true'
-        run: pnpm ovsx publish -p $OVSX_TOKEN
-        env:
-          OVSX_TOKEN: ${{ secrets.OVSX_TOKEN }}
+          - name: Publish to Open VSX
+            if: steps.check.outputs.version_changed == 'true'
+            run: pnpm ovsx publish --trusted-publishing --skip-duplicate
 
       - name: Create git tag
         if: steps.check.outputs.version_changed == 'true'
