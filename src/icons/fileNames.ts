@@ -4,6 +4,7 @@ import type { FileIconId } from "../types/Icon";
 
 export default {
   ...make(webpack, "_f_webpack"),
+  "accessibility.md": "_f_accessibility",
   ace: "_f_adonis",
   ".adonisrc.json": "_f_adonis",
   "AGENTS.md": "_f_agentsmd",
@@ -83,6 +84,12 @@ export default {
   "cabal.project": "_f_cabal",
   "cabal.project.freeze": "_f_cabal",
   "cabal.project.local": "_f_cabal",
+  Caddyfile: "_f_caddy",
+  "Caddyfile.dev": "_f_caddy",
+  "Caddyfile.local": "_f_caddy",
+  "Caddyfile.prod": "_f_caddy",
+  "Caddyfile.production": "_f_caddy",
+  "Caddyfile.staging": "_f_caddy",
   "capacitor.config.json": "_f_capacitor",
   "capacitor.config.ts": "_f_capacitor",
   "Cargo.lock": "_f_cargo",
