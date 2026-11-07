@@ -1,5 +1,6 @@
 import { webpack } from "../defaults/bundler";
 import { make } from "../helper";
+import type { FileIconId } from "../types/Icon";
 
 export default {
   ...make(webpack, "_f_webpack"),
@@ -251,6 +252,7 @@ export default {
   "dune-workspace": "_f_dune",
   "dune-workspace.dev": "_f_dune",
   "eas.json": "_f_expo",
+  ".easignore": "_f_expo",
   ".editorconfig": "_f_editorconfig",
   ".ember-cli": "_f_ember",
   "ember-cli-builds.js": "_f_ember",
@@ -794,4 +796,4 @@ export default {
   ".yarnrc": "_f_yarn",
   ".yarnrc.yaml": "_f_yarn",
   ".yarnrc.yml": "_f_yarn",
-};
+} satisfies Record<string, FileIconId>;
