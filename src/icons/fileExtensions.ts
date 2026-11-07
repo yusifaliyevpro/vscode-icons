@@ -1,5 +1,6 @@
 import { audio, image, video } from "../defaults/media";
 import { make } from "../helper";
+import type { FileIconId } from "../types/Icon";
 
 export default {
   ...make(audio, "_f_audio"),
@@ -668,4 +669,4 @@ export default {
   zip: "_f_zip",
   zipx: "_f_zip",
   zsh: "_f_console",
-};
+} satisfies Record<string, FileIconId>;

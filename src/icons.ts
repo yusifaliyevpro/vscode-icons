@@ -1,28 +1,24 @@
-import type { Icon } from "./types/Icon";
-function icon(name: string): Icon {
-  return {
-    [`_f_${name}`]: {
-      iconPath: `./icons/${name}.svg`,
-    },
-  };
+import type { IconDefinition } from "./types/Icon";
+
+// Overload keeps the literal key, which TS otherwise widens to string for computed keys.
+function define<K extends string>(id: K, name: string): Record<K, IconDefinition>;
+function define(id: string, name: string): Record<string, IconDefinition> {
+  return { [id]: { iconPath: `./icons/${name}.svg` } };
 }
 
-function iconGeneric(name: string): Icon {
-  return {
-    [`_${name}`]: {
-      iconPath: `./icons/${name}.svg`,
-    },
-  };
-}
-function folderIcon(name: string): Icon {
-  return {
-    [`_fd_${name}`]: {
-      iconPath: `./icons/${name}.svg`,
-    },
-  };
+function icon<N extends string>(name: N) {
+  return define(`_f_${name}` as const, name);
 }
 
-const icons: Icon = {
+function iconGeneric<N extends string>(name: N) {
+  return define(`_${name}` as const, name);
+}
+
+function folderIcon<N extends string>(name: N) {
+  return define(`_fd_${name}` as const, name);
+}
+
+const icons = {
   ...iconGeneric("file"),
   ...iconGeneric("folder"),
   ...iconGeneric("folder_open"),

@@ -6,6 +6,7 @@ export default {
   file: "_file",
   folder: "_folder",
   folderExpanded: "_folder_open",
+  // Undefined on purpose: root folders show no icon, and removing these falls back to the folder icon.
   rootFolder: "_root_folder",
   rootFolderExpanded: "_root_folder_open",
   fileExtensions,

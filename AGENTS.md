@@ -37,6 +37,7 @@ The build pipeline flows: **icon definitions → generator → extension.ts → 
 ## Key Conventions
 
 - **Icon ID prefixes**: `_f_` for file icons, `_fd_` for folder icons, `_open` suffix for expanded folder variants.
+- **Typed icon IDs** (`src/types/Icon.ts`): `FileIconId`, `FolderIconId` and `FolderOpenIconId` are derived from `src/icons.ts`, and each mapping file uses `satisfies` so values autocomplete and unknown IDs fail typecheck. Register a new icon in `src/icons.ts` first.
 - **`make()` helper** (`src/helper.ts`): Maps an array of strings to a single icon ID. Used for batch assignments (e.g., all audio extensions → `_f_audio`).
 - **`src/defaults/`**: Predefined arrays of related extensions — `media.ts` (audio/video/image/font extensions) and `bundler.ts` (webpack config filename variants).
 

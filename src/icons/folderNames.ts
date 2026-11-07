@@ -1,3 +1,5 @@
+import type { FolderIconId } from "../types/Icon";
+
 export default {
   "(auth)": "_fd_folder_secure",
   addon: "_fd_folder_plugin",
@@ -612,4 +614,4 @@ export default {
   "wp-content": "_fd_folder_wordpress",
   www: "_fd_folder_public",
   wwwroot: "_fd_folder_public",
-};
+} satisfies Record<string, FolderIconId>;

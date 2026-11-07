@@ -1,3 +1,5 @@
+import type { FolderOpenIconId } from "../types/Icon";
+
 export default {
   addon: "_fd_folder_plugin_open",
   addons: "_fd_folder_plugin_open",
@@ -611,4 +613,4 @@ export default {
   "wp-content": "_fd_folder_wordpress_open",
   www: "_fd_folder_public_open",
   wwwroot: "_fd_folder_public_open",
-};
+} satisfies Record<string, FolderOpenIconId>;
