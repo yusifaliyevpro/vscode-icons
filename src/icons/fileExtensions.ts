@@ -68,6 +68,8 @@ export default {
   c: "_f_c",
   "c++": "_f_cpp",
   cabal: "_f_cabal",
+  caddyfile: "_f_caddy",
+  caddyfiletest: "_f_caddy",
   cake: "_f_cake",
   cbl: "_f_cobol",
   cc: "_f_cpp",
