@@ -1,9 +1,11 @@
-name: PR Check
+name: CI
 
 on:
+  push:
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
+    branches: [main]
 
 jobs:
   check:
@@ -31,6 +33,7 @@ jobs:
         run: pnpm check
 
   version-check:
+    if: github.base_ref != 'main'
     runs-on: ubuntu-latest
 
     steps:
