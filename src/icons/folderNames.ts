@@ -26,6 +26,7 @@ export default {
   argocd: "_fd_folder_argocd",
   ".assets": "_fd_folder_asset",
   assets: "_fd_folder_asset",
+  ".astro": "_fd_folder_astro",
   ".audio": "_fd_folder_audio",
   audio: "_fd_folder_audio",
   ".audios": "_fd_folder_audio",

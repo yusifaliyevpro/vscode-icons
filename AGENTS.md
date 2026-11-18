@@ -20,13 +20,12 @@ There are no unit tests; `pnpm check` is the full validation (config in `greenly
 
 The build pipeline flows: **icon definitions → generator → extension.ts → icons.json**
 
-1. **`src/icons.ts`** — Central icon registry. Uses `icon(name)`, `folderIcon(name)`, and `iconGeneric(name)` factory functions to map an ID to an SVG path: `icon` produces `_f_<name>` (file icons), `folderIcon` produces `_fd_<name>` (+ `_fd_<name>_open`), and `iconGeneric` produces a bare `_<name>` (the built-in file/folder defaults). Entries are grouped `iconGeneric` → `folderIcon` → `icon` and sorted by name, enforced by the "Sorted icons" check (`scripts/sort-icons.ts`).
+1. **`src/icons.ts`** — Central icon registry. Uses `icon(name)`, `folderIcon(name)`, and `iconGeneric(name)` factory functions to map an ID to an SVG path: `icon` produces `_f_<name>` (file icons), `folderIcon` produces `_fd_<name>` and `_fd_<name>_open` (from `<name>.svg` + `<name>_open.svg`), and `iconGeneric` produces a bare `_<name>` (the built-in file/folder defaults). Entries are grouped `iconGeneric` → `folderIcon` → `icon` and sorted by name, enforced by the "Sorted icons" check (`scripts/sort-icons.ts`).
 
-2. **`src/icons/`** — Four mapping files that associate file patterns with icon IDs:
+2. **`src/icons/`** — Three mapping files that associate file patterns with icon IDs:
    - `fileExtensions.ts` — file extension → icon (e.g., `"js": "_f_js"`)
    - `fileNames.ts` — exact filename → icon (e.g., `"package.json": "_f_npm"`)
-   - `folderNames.ts` — folder name → closed folder icon
-   - `folderNamesExpanded.ts` — folder name → expanded folder icon
+   - `folderNames.ts` — folder name → folder icon (the expanded `_open` map is derived from it in `generator.ts`)
 
 3. **`src/generator.ts`** — Composes all mappings into the VS Code icon theme structure with default icons for file, folder, rootFolder, and their expanded variants.
 
@@ -39,11 +38,11 @@ The build pipeline flows: **icon definitions → generator → extension.ts → 
 - **Icon ID prefixes**: `_f_` for file icons, `_fd_` for folder icons, `_open` suffix for expanded folder variants.
 - **Typed icon IDs** (`src/types/Icon.ts`): `FileIconId`, `FolderIconId` and `FolderOpenIconId` are derived from `src/icons.ts`, and each mapping file uses `satisfies` so values autocomplete and unknown IDs fail typecheck. Register a new icon in `src/icons.ts` first.
 - **`make()` helper** (`src/helper.ts`): Maps an array of strings to a single icon ID. Used for batch assignments (e.g., all audio extensions → `_f_audio`).
-- **`src/defaults/`**: Predefined arrays of related extensions — `media.ts` (audio/video/image/font extensions) and `bundler.ts` (webpack config filename variants).
+- **`src/defaults/`**: Predefined arrays of related extensions — `media.ts` (audio/video/image/font extensions).
 
 ## Adding a New Icon
 
 1. Add the SVG file to `icons/` (e.g., `myicon.svg`)
-2. Add an icon definition in `src/icons.ts` using `icon("myicon")` or `folderIcon("myicon")`
-3. Add the mapping in the appropriate `src/icons/` file (fileExtensions, fileNames, folderNames, or folderNamesExpanded)
+2. Add an icon definition in `src/icons.ts` using `icon("myicon")` or `folderIcon("folder_myicon")` (folders need both `folder_myicon.svg` and `folder_myicon_open.svg`)
+3. Add the mapping in the appropriate `src/icons/` file (fileExtensions, fileNames, or folderNames)
 4. Run `pnpm check` to typecheck, verify icon integrity, sort the registry/mappings, and rebuild `icons.json`

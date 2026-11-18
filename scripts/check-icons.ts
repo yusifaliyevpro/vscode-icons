@@ -33,21 +33,18 @@ export function checkIcons(): void {
   let match: RegExpExecArray | null;
   while ((match = iconRegex.exec(iconsTs)) !== null) {
     const [, fn, name] = match;
-    declaredSvgs.add(`${name}.svg`);
-    let id: string;
-    if (fn === "icon") {
-      id = `_f_${name}`;
-    } else if (fn === "folderIcon") {
-      id = `_fd_${name}`;
-    } else {
-      id = `_${name}`;
+    const prefix = fn === "icon" ? "_f_" : fn === "folderIcon" ? "_fd_" : "_";
+    const names = fn === "folderIcon" ? [name, `${name}_open`] : [name];
+    for (const svgName of names) {
+      const id = `${prefix}${svgName}`;
+      declaredSvgs.add(`${svgName}.svg`);
+      definedIds.add(id);
+      iconInfoMap.set(id, {
+        line: lineNumberAt(iconsTs, match.index),
+        svgName: `${svgName}.svg`,
+        declaration: `...${fn}("${name}")`,
+      });
     }
-    definedIds.add(id);
-    iconInfoMap.set(id, {
-      line: lineNumberAt(iconsTs, match.index),
-      svgName: `${name}.svg`,
-      declaration: `...${fn}("${name}")`,
-    });
   }
 
   // Check 1: referenced SVGs must exist on disk
@@ -58,12 +55,7 @@ export function checkIcons(): void {
   const unused = svgFiles.filter((f) => !declaredSvgs.has(f));
 
   // Check 3: icon IDs used in mapping files must be defined in icons.ts (also collect used IDs for Check 4)
-  const mappingFiles = [
-    "src/icons/fileExtensions.ts",
-    "src/icons/fileNames.ts",
-    "src/icons/folderNames.ts",
-    "src/icons/folderNamesExpanded.ts",
-  ];
+  const mappingFiles = ["src/icons/fileExtensions.ts", "src/icons/fileNames.ts", "src/icons/folderNames.ts"];
   const undefinedRefs: { file: string; line: number; id: string }[] = [];
   const usedIds = new Set<string>();
 
@@ -95,6 +87,13 @@ export function checkIcons(): void {
   const generatorIdRegex = /"(_{1,2}[\w]+)"/g;
   while ((match = generatorIdRegex.exec(generatorContent)) !== null) {
     usedIds.add(match[1]);
+  }
+
+  // A used folder icon implies its `_open` variant (folderNamesExpanded is derived in generator.ts)
+  for (const id of definedIds) {
+    if (id.startsWith("_fd_") && id.endsWith("_open") && usedIds.has(id.slice(0, -"_open".length))) {
+      usedIds.add(id);
+    }
   }
 
   // Check 4: icon IDs declared in icons.ts but never used in any mapping or generator
