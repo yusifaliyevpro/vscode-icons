@@ -33,7 +33,6 @@ jobs:
         run: pnpm check
 
   version-check:
-    # Pushes to main have no base branch to compare against.
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
 
