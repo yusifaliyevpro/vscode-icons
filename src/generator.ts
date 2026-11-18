@@ -1,7 +1,10 @@
 import fileExtensions from "./icons/fileExtensions";
 import fileNames from "./icons/fileNames";
 import folderNames from "./icons/folderNames";
-import folderNamesExpanded from "./icons/folderNamesExpanded";
+
+// Every folderIcon() also defines an `_open` variant, so the expanded map is derived.
+const folderNamesExpanded = Object.fromEntries(Object.entries(folderNames).map(([name, id]) => [name, `${id}_open` as const]));
+
 export default {
   file: "_file",
   folder: "_folder",

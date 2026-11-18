@@ -7,12 +7,7 @@ import { pathToFileURL } from "node:url";
 const rootDir = path.resolve(import.meta.dirname, "..");
 
 // ── Mapping files: sort object keys alphabetically ────────────────
-const mappingFiles = [
-  "src/icons/fileExtensions.ts",
-  "src/icons/fileNames.ts",
-  "src/icons/folderNames.ts",
-  "src/icons/folderNamesExpanded.ts",
-];
+const mappingFiles = ["src/icons/fileExtensions.ts", "src/icons/fileNames.ts", "src/icons/folderNames.ts"];
 
 // Extract the bare key string from a line like:  key: "...",  or  "key": "...",
 function extractKey(line: string): string {

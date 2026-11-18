@@ -79,31 +79,26 @@ Folder icons require two SVG variants: a closed folder and an open folder. You c
 
    This creates two IDs: `_fd_folder_mylogo` (closed) and `_fd_folder_mylogo_open` (expanded).
 
-5. **Map it to folder names** — Add entries in both:
-   - **`src/icons/folderNames.ts`** (closed state):
-     ```ts
-     mylogo: "_fd_folder_mylogo",
-     ```
-   - **`src/icons/folderNamesExpanded.ts`** (expanded state):
-     ```ts
-     mylogo: "_fd_folder_mylogo_open",
-     ```
+5. **Map it to folder names** — Add an entry in **`src/icons/folderNames.ts`** (the expanded `_open` icon is applied automatically):
+
+   ```ts
+   mylogo: "_fd_folder_mylogo",
+   ```
 
 6. **Build** — Run `pnpm build` to regenerate `icons.json`.
 
 ## Files Overview
 
-| File                               | Purpose                                                                  |
-| ---------------------------------- | ------------------------------------------------------------------------ |
-| `icons/`                           | Active SVG icon assets                                                   |
-| `icons-unused/`                    | Designed but unmapped icons — check here first before creating a new SVG |
-| `src/icons.ts`                     | Icon registry — maps icon IDs to SVG paths                               |
-| `src/icons/fileExtensions.ts`      | File extension → icon ID mappings                                        |
-| `src/icons/fileNames.ts`           | Exact filename → icon ID mappings                                        |
-| `src/icons/folderNames.ts`         | Folder name → closed folder icon ID                                      |
-| `src/icons/folderNamesExpanded.ts` | Folder name → expanded folder icon ID                                    |
-| `src/helper.ts`                    | `make()` helper for batch mappings                                       |
-| `folder-icon-maker/`               | Tool to generate folder icon SVGs from a logo                            |
+| File                          | Purpose                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------ |
+| `icons/`                      | Active SVG icon assets                                                   |
+| `icons-unused/`               | Designed but unmapped icons — check here first before creating a new SVG |
+| `src/icons.ts`                | Icon registry — maps icon IDs to SVG paths                               |
+| `src/icons/fileExtensions.ts` | File extension → icon ID mappings                                        |
+| `src/icons/fileNames.ts`      | Exact filename → icon ID mappings                                        |
+| `src/icons/folderNames.ts`    | Folder name → folder icon ID (expanded variant is derived)               |
+| `src/helper.ts`               | `make()` helper for batch mappings                                       |
+| `folder-icon-maker/`          | Tool to generate folder icon SVGs from a logo                            |
 
 ## Local Testing
 
